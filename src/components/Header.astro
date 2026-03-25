@@ -1,0 +1,101 @@
+---
+import { SITE_TITLE, SITE_TAGLINE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header class="site-header">
+	<div class="shell">
+		<div class="brand">
+			<p class="eyebrow">Personal site</p>
+			<h1><a href="/">{SITE_TITLE}</a></h1>
+			<p class="tagline">{SITE_TAGLINE}</p>
+		</div>
+		<nav aria-label="Primary">
+			<div class="internal-links">
+				<HeaderLink href="/">Home</HeaderLink>
+				<HeaderLink href="/blog">Writing</HeaderLink>
+				<HeaderLink href="/about">About</HeaderLink>
+				<a href="/rss.xml">RSS</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		border-bottom: 1px solid rgba(var(--gray), 0.18);
+		background: rgba(255, 255, 255, 0.88);
+		backdrop-filter: blur(14px);
+		position: sticky;
+		top: 0;
+		z-index: 10;
+	}
+
+	.shell {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 1.25rem 1.25rem 1rem;
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+		align-items: end;
+	}
+
+	.brand h1 {
+		margin: 0;
+		font-size: 1.5rem;
+	}
+
+	.brand a,
+	.brand a:visited {
+		text-decoration: none;
+		color: rgb(var(--black));
+	}
+
+	.eyebrow {
+		margin: 0 0 0.2rem;
+		font-size: 0.75rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+
+	.tagline {
+		margin: 0.2rem 0 0;
+		color: rgb(var(--gray));
+		font-size: 0.95rem;
+	}
+
+	.internal-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.internal-links a {
+		padding: 0.55rem 0.8rem;
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+		border-radius: 999px;
+		border: 1px solid transparent;
+	}
+
+	.internal-links a:hover,
+	.internal-links a.active {
+		border-color: rgba(var(--gray), 0.22);
+		background: rgba(var(--gray-light), 0.4);
+	}
+
+	@media (max-width: 760px) {
+		.shell {
+			flex-direction: column;
+			align-items: start;
+		}
+
+		.internal-links {
+			justify-content: flex-start;
+		}
+	}
+</style>

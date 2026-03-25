@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_AUTHOR, SITE_DESCRIPTION } from '../../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Writing · ${SITE_AUTHOR}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main class="blog-shell">
+			<section class="intro">
+				<p class="eyebrow">Writing</p>
+				<h1>Posts</h1>
+				<p>
+					All posts are stored as Markdown content, rendered by Astro, and included in the site’s RSS
+					feed.
+				</p>
+			</section>
+			<section class="post-list">
+				{posts.map((post) => (
+					<article class="post-row">
+						<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+						<div>
+							<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+							<p>{post.data.description}</p>
+						</div>
+					</article>
+				))}
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.blog-shell {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 3rem 1.25rem 4rem;
+	}
+
+	.intro {
+		max-width: 56ch;
+		margin-bottom: 2rem;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+
+	.post-list {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.post-row {
+		display: grid;
+		grid-template-columns: 9rem 1fr;
+		gap: 1.25rem;
+		padding: 1.25rem 0;
+		border-top: 1px solid rgba(var(--gray), 0.18);
+	}
+
+	.post-row:last-child {
+		border-bottom: 1px solid rgba(var(--gray), 0.18);
+	}
+
+	.date {
+		margin: 0;
+		color: rgb(var(--gray));
+		font-size: 0.95rem;
+	}
+
+	.post-row h2 {
+		margin-bottom: 0.4rem;
+	}
+
+	.post-row p:last-child {
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 700px) {
+		.post-row {
+			grid-template-columns: 1fr;
+			gap: 0.4rem;
+		}
+	}
+</style>

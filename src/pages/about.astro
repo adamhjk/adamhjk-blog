@@ -1,0 +1,98 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About · ${SITE_AUTHOR}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main class="about-shell">
+			<section>
+				<p class="eyebrow">About</p>
+				<h1>Adam Jacob</h1>
+				<p class="lede">
+					Adam Jacob is the CEO and co-founder of System Initiative and the former CTO and co-founder
+					of Chef. He has spent decades working on systems, operations, automation, and the practical
+					craft of running real infrastructure.
+				</p>
+			</section>
+			<section class="columns">
+				<div>
+					<h2>Background</h2>
+					<p>
+						Public biographies consistently describe Adam as an engineering and product innovator, the
+						original author of Chef, and a long-time builder of production systems at serious scale.
+					</p>
+					<p>
+						This site is designed as a calm, durable home for long-form writing rather than a noisy social
+						feed.
+					</p>
+				</div>
+				<div>
+					<h2>What this site is for</h2>
+					<ul>
+						<li>Publishing essays in Markdown</li>
+						<li>Maintaining a clean RSS feed</li>
+						<li>Owning a simple publishing stack with minimal moving parts</li>
+						<li>Creating room for thoughtful writing on systems and software</li>
+					</ul>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.about-shell {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 3rem 1.25rem 4rem;
+		display: grid;
+		gap: 2rem;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+
+	h1 {
+		font-size: clamp(2.5rem, 7vw, 4.5rem);
+		margin-bottom: 0.75rem;
+	}
+
+	.lede {
+		font-size: 1.2rem;
+		color: rgb(var(--gray-dark));
+		max-width: 55ch;
+	}
+
+	.columns {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.5rem;
+	}
+
+	.columns > div {
+		padding: 1.5rem;
+		border: 1px solid rgba(var(--gray), 0.18);
+		border-radius: 24px;
+		background: rgba(255, 255, 255, 0.78);
+	}
+
+	@media (max-width: 800px) {
+		.columns {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

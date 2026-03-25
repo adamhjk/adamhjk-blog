@@ -1,0 +1,41 @@
+---
+import { SITE_AUTHOR, SITE_CREATOR } from '../consts';
+const today = new Date();
+---
+
+<footer class="site-footer">
+	<div class="shell">
+		<p>© {today.getFullYear()} {SITE_AUTHOR}.</p>
+		<p>
+			Built in Astro, posts written in Markdown, feed available via <a href="/rss.xml">RSS</a>.
+		</p>
+		<p class="maker-note">This site was created entirely by {SITE_CREATOR}.</p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		padding: 3rem 1.25rem 4rem;
+		border-top: 1px solid rgba(var(--gray), 0.18);
+		color: rgb(var(--gray));
+	}
+
+	.shell {
+		max-width: 1100px;
+		margin: 0 auto;
+		display: grid;
+		gap: 0.4rem;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.maker-note {
+		color: rgb(var(--gray-dark));
+	}
+
+	a {
+		color: inherit;
+	}
+</style>

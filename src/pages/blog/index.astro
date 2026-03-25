@@ -12,8 +12,9 @@ const posts = (await getCollection('blog')).sort(
 <BaseLayout title={`Writing · ${SITE_AUTHOR}`} description={SITE_DESCRIPTION} bodyClass="page-writing">
 	<section class="page-shell">
 		<header class="page-intro">
-			<h1>Writing archive</h1>
-			<p>All posts, newest first.</p>
+			<p class="kicker">Archive</p>
+			<h1>All writing</h1>
+			<p>Every post, newest first.</p>
 		</header>
 
 		<ol class="writing-list" reversed>
@@ -21,8 +22,10 @@ const posts = (await getCollection('blog')).sort(
 				<li>
 					<article class="entry">
 						<p class="entry-date"><FormattedDate date={post.data.pubDate} /></p>
-						<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
-						<p class="entry-summary">{post.data.description}</p>
+						<div class="entry-body">
+							<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+							<p class="entry-summary">{post.data.description}</p>
+						</div>
 					</article>
 				</li>
 			))}
@@ -32,16 +35,17 @@ const posts = (await getCollection('blog')).sort(
 
 <style>
 	.page-shell {
-		max-width: var(--page-width);
+		max-width: calc(var(--page-width) + 6rem);
 		margin: 0 auto;
-		padding: 3rem var(--page-gutter) 0;
+		padding: 4rem var(--page-gutter) 0;
 	}
 
 	.page-intro {
-		margin-bottom: 2rem;
+		max-width: 34rem;
+		margin-bottom: 2.5rem;
 	}
 
-	.page-intro p {
+	.page-intro p:last-child {
 		margin: 0;
 		color: rgb(var(--muted));
 	}
@@ -50,35 +54,64 @@ const posts = (await getCollection('blog')).sort(
 		list-style: none;
 		padding: 0;
 		margin: 0;
-	}
-
-	.writing-list li + li {
-		margin-top: 1.75rem;
-		padding-top: 1.75rem;
 		border-top: 1px solid rgb(var(--line));
 	}
 
+	.writing-list li {
+		border-bottom: 1px solid rgb(var(--line));
+	}
+
+	.entry {
+		display: grid;
+		grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr);
+		gap: 1.5rem;
+		align-items: start;
+		padding: 1.6rem 0;
+	}
+
 	.entry-date {
-		margin-bottom: 0.35rem;
+		margin: 0;
+		padding-top: 0.35rem;
 		color: rgb(var(--muted));
-		font-size: 0.95rem;
+		font-family: var(--font-ui);
+		font-size: 0.88rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 	}
 
-	.entry h2 {
+	.entry-body h2 {
 		margin-bottom: 0.35rem;
 	}
 
-	.entry h2 a {
+	.entry-body h2 a {
+		color: rgb(var(--text));
 		text-decoration: none;
 	}
 
-	.entry h2 a:hover,
-	.entry h2 a:focus-visible {
+	.entry-body h2 a:hover,
+	.entry-body h2 a:focus-visible {
 		text-decoration: underline;
 	}
 
 	.entry-summary {
 		margin: 0;
+		max-width: 34rem;
 		color: rgb(var(--muted));
+	}
+
+	@media (max-width: 780px) {
+		.page-shell {
+			padding-top: 3rem;
+		}
+
+		.entry {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		.entry-date {
+			padding-top: 0;
+		}
 	}
 </style>

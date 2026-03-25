@@ -13,11 +13,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <BaseLayout title={`${title} · ${SITE_AUTHOR}`} description={description} bodyClass="page-post">
 	<article class="post-shell">
 		<header class="post-meta">
-			<p class="eyebrow"><a href="/">Writing</a></p>
+			<p class="kicker"><a href="/">Writing</a></p>
 			<h1>{title}</h1>
 			<p class="dek">{description}</p>
 			<p class="date-row">
-				<FormattedDate date={pubDate} />
+				Published <FormattedDate date={pubDate} />
 				{updatedDate && <> · Updated <FormattedDate date={updatedDate} /></>}
 			</p>
 		</header>
@@ -34,61 +34,98 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 <style>
 	.post-shell {
-		max-width: var(--page-width);
+		max-width: calc(var(--article-width) + 8rem);
 		margin: 0 auto;
-		padding: 3rem var(--page-gutter) 0;
+		padding: 4.5rem var(--page-gutter) 0;
 	}
 
 	.post-meta {
-		margin-bottom: 2.5rem;
+		max-width: var(--article-width);
+		margin: 0 auto 2.75rem;
 	}
 
-	.eyebrow {
-		margin-bottom: 0.75rem;
-		font-size: 0.95rem;
-		color: rgb(var(--muted));
+	.post-meta .kicker {
+		margin-bottom: 1rem;
 	}
 
-	.eyebrow a {
+	.post-meta .kicker a {
 		color: inherit;
+		text-decoration: none;
 	}
 
 	.dek {
-		font-size: 1.1rem;
-		color: rgb(var(--muted));
 		max-width: 34rem;
+		margin-bottom: 1.15rem;
+		color: rgb(var(--muted));
+		font-size: 1.13rem;
+		line-height: 1.68;
+		text-wrap: pretty;
 	}
 
 	.date-row {
-		color: rgb(var(--muted));
-		font-size: 0.95rem;
 		margin: 0;
+		color: rgb(var(--muted));
+		font-family: var(--font-ui);
+		font-size: 0.92rem;
 	}
 
 	.hero-image {
-		margin-bottom: 2rem;
+		margin: 0 auto 2.5rem;
+		max-width: calc(var(--article-width) + 4rem);
 	}
 
 	.hero-image img {
 		width: 100%;
 		display: block;
 		border: 1px solid rgb(var(--line));
+		border-radius: 1rem;
+		box-shadow: var(--shadow);
 	}
 
 	.prose {
-		font-size: 1rem;
+		max-width: var(--article-width);
+		margin: 0 auto;
 	}
 
-	.prose :global(h2),
+	.prose :global(> p:first-child) {
+		font-size: 1.22em;
+		line-height: 1.72;
+		color: rgb(var(--text));
+	}
+
+	.prose :global(h2) {
+		margin-top: 3rem;
+	}
+
 	.prose :global(h3) {
-		margin-top: 2.25rem;
+		margin-top: 2.2rem;
 	}
 
-	.prose :global(p),
+	.prose :global(a) {
+		text-decoration-thickness: 0.06em;
+	}
+
 	.prose :global(ul),
-	.prose :global(ol),
-	.prose :global(pre),
+	.prose :global(ol) {
+		padding-left: 1.35em;
+	}
+
 	.prose :global(blockquote) {
-		margin-bottom: 1.25rem;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	@media (max-width: 720px) {
+		.post-shell {
+			padding-top: 3rem;
+		}
+
+		.dek {
+			font-size: 1.05rem;
+		}
+
+		.prose :global(> p:first-child) {
+			font-size: 1.1em;
+		}
 	}
 </style>

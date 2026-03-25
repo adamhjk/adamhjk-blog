@@ -1,24 +1,41 @@
 <footer class="site-footer">
 	<div class="shell">
-		<p>Built to be quiet, readable, and durable.</p>
+		<p>
+			Built to be quiet, readable, and durable.
+			<span>Made with Astro by Gerald McClaw.</span>
+		</p>
 	</div>
 </footer>
 
 <style>
 	.site-footer {
 		margin-top: 4rem;
-		padding-bottom: 2rem;
 	}
 
 	.shell {
-		max-width: var(--page-width);
+		max-width: calc(var(--page-width) + 6rem);
 		margin: 0 auto;
-		padding: 0 var(--page-gutter);
+		padding: 1rem var(--page-gutter) 0;
+		border-top: 1px solid rgb(var(--line));
 		color: rgb(var(--muted));
 	}
 
 	p {
 		margin: 0;
-		font-size: 0.95rem;
+		font-family: var(--font-ui);
+		font-size: 0.9rem;
+		line-height: 1.7;
+	}
+
+	span {
+		display: inline-block;
+		margin-left: 0.35rem;
+	}
+
+	@media (max-width: 640px) {
+		span {
+			display: block;
+			margin-left: 0;
+		}
 	}
 </style>

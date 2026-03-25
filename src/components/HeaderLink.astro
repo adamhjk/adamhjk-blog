@@ -9,7 +9,7 @@ const isWritingLink = href === '/';
 const isActive = isWritingLink ? pathname === '/' || pathname.startsWith('/blog') : pathname === href;
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={[className, { active: isActive }]} aria-current={isActive ? 'page' : undefined} {...props}>
 	<slot />
 </a>
 

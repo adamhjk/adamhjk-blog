@@ -20,7 +20,7 @@ const { title, description, bodyClass } = Astro.props;
 	<body class={bodyClass}>
 		<a class="skip-link" href="#content">Skip to content</a>
 		<Header />
-		<main id="content">
+		<main id="content" tabindex="-1">
 			<slot />
 		</main>
 		<Footer />

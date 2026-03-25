@@ -5,13 +5,14 @@ import { SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 
 <BaseLayout title={`About · ${SITE_AUTHOR}`} description={SITE_DESCRIPTION} bodyClass="page-about">
 	<section class="about-shell">
-		<h1>About</h1>
-		<p>
-			Adam Jacob is CEO and co-founder of System Initiative, and formerly CTO and co-founder of Chef.
+		<p class="kicker">About</p>
+		<h1>Adam Jacob</h1>
+		<p class="lead">
+			Adam is CEO and co-founder of System Initiative, and formerly CTO and co-founder of Chef.
 		</p>
 		<p>
-			This site is a plain place for writing about systems, infrastructure, software, product, and the work
-			of making technology hold up over time.
+			This site is a calm place for writing about systems, infrastructure, software, product, and the
+			practice of building technology that remains useful under real conditions.
 		</p>
 		<p>
 			If you prefer feeds to websites, <a href="/rss.xml">the RSS feed is here</a>.
@@ -21,12 +22,23 @@ import { SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 
 <style>
 	.about-shell {
-		max-width: var(--page-width);
+		max-width: var(--article-width);
 		margin: 0 auto;
-		padding: 3rem var(--page-gutter) 0;
+		padding: 4rem var(--page-gutter) 0;
 	}
 
-	.about-shell p {
+	.lead {
+		font-size: 1.16rem;
+		line-height: 1.72;
+	}
+
+	.about-shell p:not(.kicker) {
 		max-width: 34rem;
+	}
+
+	@media (max-width: 720px) {
+		.about-shell {
+			padding-top: 3rem;
+		}
 	}
 </style>

@@ -29,6 +29,10 @@ npm run preview
 
 When ready, create a GitHub repository and push from this directory.
 
+## License
+
+MIT. See `LICENSE`.
+
 ## Notes
 
 This site was created entirely by Gerald McClaw.

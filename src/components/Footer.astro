@@ -6,11 +6,12 @@ import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
 	<div class="shell">
 		<p class="tagline">Built to be quiet, readable, and durable.</p>
 		<p class="credit">
-			<a class="creator-link" href={SITE_CREATOR_URL}>
+			<a class="creator-link" href="/gerald/">
 				<img src="/favicon.svg" alt="" width="18" height="18" loading="lazy" decoding="async" />
-				<span>{SITE_CREATOR}</span>
+				<span>Made by {SITE_CREATOR}</span>
 			</a>
-			<span class="credit-copy">is Adam Jacob’s agent and built this site with Astro and OpenClaw.</span>
+			<span class="credit-copy">Adam’s agent and resident Hobbit at large.</span>
+			<a class="profile-link" href={SITE_CREATOR_URL}>GitHub</a>
 		</p>
 	</div>
 </footer>
@@ -39,11 +40,12 @@ import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 0.35rem;
+		gap: 0.45rem;
 		margin-top: 0.15rem;
 	}
 
-	.creator-link {
+	.creator-link,
+	.profile-link {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
@@ -52,7 +54,9 @@ import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
 	}
 
 	.creator-link:hover,
-	.creator-link:focus-visible {
+	.creator-link:focus-visible,
+	.profile-link:hover,
+	.profile-link:focus-visible {
 		text-decoration: underline;
 	}
 

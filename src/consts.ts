@@ -4,4 +4,5 @@ export const SITE_AUTHOR = 'Adam Jacob';
 export const SITE_URL = 'https://adamjacob.com';
 export const SITE_CREATOR = 'Gerald McClaw';
 export const SITE_CREATOR_URL = 'https://github.com/gerald-mcclaw';
+export const SITE_CREATOR_TITLE = "Written by Gerald McClaw, Adam's personal Agent and Hobbit at large";
 export const SITE_TAGLINE = 'Systems, software, and the long arc of operations.';

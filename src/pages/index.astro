@@ -1,188 +1,87 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TAGLINE, SITE_TITLE } from '../consts';
+import { SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main class="home-shell">
-			<section class="hero">
-				<p class="eyebrow">Personal blog</p>
-				<h1>{SITE_AUTHOR}</h1>
-				<p class="tagline">{SITE_TAGLINE}</p>
-				<p class="intro">
-					Notes on systems, infrastructure, software, product, and the long arc of building technology
-					that survives contact with reality.
-				</p>
-				<div class="hero-actions">
-					<a href="/blog" class="button primary">Read the writing</a>
-					<a href="/about" class="button">About Adam</a>
-					<a href="/rss.xml" class="button">RSS feed</a>
-				</div>
-			</section>
+<BaseLayout title={SITE_AUTHOR} description={SITE_DESCRIPTION} bodyClass="page-home">
+	<section class="page-shell">
+		<header class="page-intro">
+			<h1>Writing</h1>
+			<p>
+				Notes on systems, software, product, operations, and the craft of building durable technology.
+			</p>
+		</header>
 
-			<section class="about-grid">
-				<div>
-					<h2>What this is</h2>
-					<p>
-						A focused writing space for Adam Jacob: co-founder and CEO of System Initiative, former CTO
-						of Chef, systems thinker, product builder, and long-time operator.
-					</p>
-				</div>
-				<div>
-					<h2>What you’ll find</h2>
-					<ul>
-						<li>Essays on infrastructure, operations, and platform engineering</li>
-						<li>Product notes and first-principles thinking</li>
-						<li>Posts authored in Markdown and published as a fast static site</li>
-					</ul>
-				</div>
-			</section>
-
-			<section class="latest">
-				<div class="section-head">
-					<h2>Latest writing</h2>
-					<a href="/blog">See all posts</a>
-				</div>
-				<div class="post-grid">
-					{posts.map((post) => (
-						<article class="post-card">
-							<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
-							<h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
-							<p>{post.data.description}</p>
-						</article>
-					))}
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+		<ol class="writing-list" reversed>
+			{posts.map((post) => (
+				<li>
+					<article class="entry">
+						<p class="entry-date"><FormattedDate date={post.data.pubDate} /></p>
+						<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+						<p class="entry-summary">{post.data.description}</p>
+					</article>
+				</li>
+			))}
+		</ol>
+	</section>
+</BaseLayout>
 
 <style>
-	.home-shell {
-		max-width: 1100px;
+	.page-shell {
+		max-width: var(--page-width);
 		margin: 0 auto;
-		padding: 3rem 1.25rem 4rem;
-		display: grid;
-		gap: 3rem;
+		padding: 3rem var(--page-gutter) 0;
 	}
 
-	.hero {
-		padding: 2rem 0 1rem;
+	.page-intro {
+		margin-bottom: 2rem;
 	}
 
-	.eyebrow {
-		margin: 0 0 0.5rem;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		font-size: 0.8rem;
-		color: rgb(var(--gray));
+	.page-intro p {
+		margin: 0;
+		color: rgb(var(--muted));
+		max-width: 34rem;
 	}
 
-	h1 {
-		font-size: clamp(3rem, 8vw, 6rem);
-		margin-bottom: 0.5rem;
+	.writing-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
-	.tagline {
-		font-size: clamp(1.25rem, 3vw, 1.8rem);
-		color: rgb(var(--gray-dark));
-		margin: 0 0 1rem;
+	.writing-list li + li {
+		margin-top: 1.75rem;
+		padding-top: 1.75rem;
+		border-top: 1px solid rgb(var(--line));
 	}
 
-	.intro {
-		max-width: 40rem;
-		font-size: 1.1rem;
-		color: rgb(var(--gray-dark));
+	.entry-date {
+		margin-bottom: 0.35rem;
+		color: rgb(var(--muted));
+		font-size: 0.95rem;
 	}
 
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: 1.5rem;
+	.entry h2 {
+		margin-bottom: 0.35rem;
 	}
 
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0.8rem 1.05rem;
-		border-radius: 999px;
+	.entry h2 a {
 		text-decoration: none;
-		border: 1px solid rgba(var(--gray), 0.2);
-		color: rgb(var(--gray-dark));
-		background: white;
 	}
 
-	.button.primary {
-		background: rgb(var(--black));
-		color: white;
-		border-color: rgb(var(--black));
+	.entry h2 a:hover,
+	.entry h2 a:focus-visible {
+		text-decoration: underline;
 	}
 
-	.about-grid,
-	.post-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1.5rem;
-	}
-
-	.about-grid > div,
-	.post-card {
-		padding: 1.5rem;
-		border: 1px solid rgba(var(--gray), 0.18);
-		border-radius: 24px;
-		background: rgba(255, 255, 255, 0.78);
-	}
-
-	.section-head {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 1rem;
-		margin-bottom: 1rem;
-	}
-
-	.section-head h2,
-	.about-grid h2,
-	.post-card h3 {
-		margin-bottom: 0.5rem;
-	}
-
-	.post-date {
-		margin: 0 0 0.75rem;
-		font-size: 0.9rem;
-		color: rgb(var(--gray));
-	}
-
-	.post-card p:last-child {
-		margin-bottom: 0;
-	}
-
-	@media (max-width: 800px) {
-		.about-grid,
-		.post-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.section-head {
-			flex-direction: column;
-			align-items: start;
-		}
+	.entry-summary {
+		margin: 0;
+		color: rgb(var(--muted));
 	}
 </style>

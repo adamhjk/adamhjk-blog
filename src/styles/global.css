@@ -1,13 +1,41 @@
 :root {
-	--accent: #7c5cff;
-	--accent-soft: #efeaff;
-	--black: 22, 24, 29;
-	--gray: 108, 114, 132;
-	--gray-light: 236, 238, 244;
-	--gray-dark: 52, 57, 71;
-	--background: 248, 247, 244;
-	--surface: 255, 255, 255;
-	--box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+	color-scheme: light;
+	--text: 22, 22, 22;
+	--muted: 96, 96, 96;
+	--line: 218, 218, 212;
+	--background: 252, 252, 249;
+	--surface: 255, 255, 252;
+	--soft: 244, 244, 238;
+	--accent: 17, 17, 17;
+	--focus: 77, 123, 255;
+	--page-width: 42rem;
+	--page-gutter: 1.25rem;
+}
+
+:root[data-theme='dark'] {
+	color-scheme: dark;
+	--text: 238, 238, 233;
+	--muted: 168, 168, 160;
+	--line: 66, 66, 66;
+	--background: 17, 17, 17;
+	--surface: 24, 24, 24;
+	--soft: 31, 31, 31;
+	--accent: 245, 245, 240;
+	--focus: 142, 179, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		color-scheme: dark;
+		--text: 238, 238, 233;
+		--muted: 168, 168, 160;
+		--line: 66, 66, 66;
+		--background: 17, 17, 17;
+		--surface: 24, 24, 24;
+		--soft: 31, 31, 31;
+		--accent: 245, 245, 240;
+		--focus: 142, 179, 255;
+	}
 }
 
 @font-face {
@@ -28,6 +56,7 @@
 
 html {
 	scroll-behavior: smooth;
+	background: rgb(var(--background));
 }
 
 body {
@@ -35,14 +64,14 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background:
-		radial-gradient(circle at top left, rgba(124, 92, 255, 0.08), transparent 28%),
-		rgb(var(--background));
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+	background: rgb(var(--background));
+	color: rgb(var(--text));
+	font-size: 18px;
+	line-height: 1.75;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
+	text-rendering: optimizeLegibility;
+	transition: background-color 120ms ease, color 120ms ease;
 }
 
 main {
@@ -57,17 +86,21 @@ h1,
  h5,
  h6 {
 	margin: 0 0 0.75rem 0;
-	color: rgb(var(--black));
-	line-height: 1.08;
-	letter-spacing: -0.03em;
+	color: rgb(var(--text));
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+}
+
+h1 {
+	font-size: clamp(2.4rem, 7vw, 3.8rem);
 }
 
 h2 {
-	font-size: clamp(1.6rem, 3vw, 2.3rem);
+	font-size: clamp(1.25rem, 3vw, 1.6rem);
 }
 
 h3 {
-	font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+	font-size: clamp(1.05rem, 2vw, 1.25rem);
 }
 
 strong,
@@ -76,12 +109,20 @@ strong,
 }
 
 a {
-	color: var(--accent);
-	text-underline-offset: 0.18em;
+	color: rgb(var(--accent));
+	text-decoration-thickness: 0.06em;
+	text-underline-offset: 0.16em;
 }
 
 a:hover {
-	color: #5d3ef0;
+	text-decoration-thickness: 0.1em;
+}
+
+a:focus-visible,
+button:focus-visible {
+	outline: 2px solid rgb(var(--focus));
+	outline-offset: 3px;
+	border-radius: 0.2rem;
 }
 
 p,
@@ -96,23 +137,28 @@ ol {
 	padding-left: 1.2em;
 }
 
+li + li {
+	margin-top: 0.35rem;
+}
+
 img {
 	max-width: 100%;
 	height: auto;
 }
 
 code {
-	padding: 0.15rem 0.35rem;
-	background-color: rgb(var(--gray-light));
-	border-radius: 6px;
+	padding: 0.12rem 0.3rem;
+	background-color: rgb(var(--soft));
+	border-radius: 4px;
 	font-size: 0.9em;
 }
 
 pre {
-	padding: 1.25em;
-	border-radius: 16px;
+	padding: 1.1em;
+	border-radius: 10px;
 	overflow-x: auto;
-	background: rgb(247, 247, 250);
+	background: rgb(var(--soft));
+	border: 1px solid rgb(var(--line));
 }
 
 pre > code {
@@ -120,17 +166,37 @@ pre > code {
 }
 
 blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0.25rem 0 0.25rem 1rem;
+	border-left: 3px solid rgb(var(--line));
+	padding: 0.2rem 0 0.2rem 1rem;
 	margin: 1.5rem 0;
-	font-size: 1.1em;
-	color: rgb(var(--gray-dark));
+	color: rgb(var(--muted));
 }
 
 hr {
 	border: none;
-	border-top: 1px solid rgba(var(--gray), 0.2);
+	border-top: 1px solid rgb(var(--line));
 	margin: 2rem 0;
+}
+
+::selection {
+	background: rgba(var(--focus), 0.25);
+}
+
+.skip-link {
+	position: absolute;
+	left: var(--page-gutter);
+	top: 0.5rem;
+	background: rgb(var(--surface));
+	color: rgb(var(--text));
+	padding: 0.6rem 0.8rem;
+	border: 1px solid rgb(var(--line));
+	transform: translateY(-160%);
+	transition: transform 120ms ease;
+	z-index: 10;
+}
+
+.skip-link:focus {
+	transform: translateY(0);
 }
 
 .sr-only {
@@ -147,8 +213,24 @@ hr {
 	white-space: nowrap;
 }
 
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		transition: none !important;
+	}
+}
+
 @media (max-width: 720px) {
+	:root {
+		--page-gutter: 1rem;
+	}
+
 	body {
-		font-size: 18px;
+		font-size: 17px;
 	}
 }

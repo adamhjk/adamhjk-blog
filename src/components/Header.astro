@@ -1,101 +1,78 @@
 ---
-import { SITE_TITLE, SITE_TAGLINE } from '../consts';
+import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header class="site-header">
 	<div class="shell">
-		<div class="brand">
-			<p class="eyebrow">Personal site</p>
-			<h1><a href="/">{SITE_TITLE}</a></h1>
-			<p class="tagline">{SITE_TAGLINE}</p>
+		<div class="brand-row">
+			<p class="brand"><a href="/">{SITE_TITLE}</a></p>
 		</div>
-		<nav aria-label="Primary">
-			<div class="internal-links">
-				<HeaderLink href="/">Home</HeaderLink>
-				<HeaderLink href="/blog">Writing</HeaderLink>
+		<div class="controls">
+			<nav aria-label="Primary" class="nav">
+				<HeaderLink href="/">Writing</HeaderLink>
 				<HeaderLink href="/about">About</HeaderLink>
 				<a href="/rss.xml">RSS</a>
-			</div>
-		</nav>
+			</nav>
+			<ThemeToggle />
+		</div>
 	</div>
 </header>
 
 <style>
 	.site-header {
-		border-bottom: 1px solid rgba(var(--gray), 0.18);
-		background: rgba(255, 255, 255, 0.88);
-		backdrop-filter: blur(14px);
-		position: sticky;
-		top: 0;
-		z-index: 10;
+		padding: 1.25rem 0 0;
 	}
 
 	.shell {
-		max-width: 1100px;
+		max-width: var(--page-width);
 		margin: 0 auto;
-		padding: 1.25rem 1.25rem 1rem;
+		padding: 0 var(--page-gutter);
 		display: flex;
 		justify-content: space-between;
-		gap: 2rem;
-		align-items: end;
+		align-items: center;
+		gap: 1rem;
 	}
 
-	.brand h1 {
+	.brand {
 		margin: 0;
-		font-size: 1.5rem;
+		font-size: 1rem;
 	}
 
 	.brand a,
 	.brand a:visited {
 		text-decoration: none;
-		color: rgb(var(--black));
+		color: rgb(var(--text));
 	}
 
-	.eyebrow {
-		margin: 0 0 0.2rem;
-		font-size: 0.75rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: rgb(var(--gray));
-	}
-
-	.tagline {
-		margin: 0.2rem 0 0;
-		color: rgb(var(--gray));
-		font-size: 0.95rem;
-	}
-
-	.internal-links {
+	.controls,
+	.nav {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
 		align-items: center;
-		justify-content: flex-end;
+		gap: 0.85rem;
 	}
 
-	.internal-links a {
-		padding: 0.55rem 0.8rem;
+	.nav a {
+		color: rgb(var(--muted));
 		text-decoration: none;
-		color: rgb(var(--gray-dark));
-		border-radius: 999px;
-		border: 1px solid transparent;
 	}
 
-	.internal-links a:hover,
-	.internal-links a.active {
-		border-color: rgba(var(--gray), 0.22);
-		background: rgba(var(--gray-light), 0.4);
+	.nav a:hover,
+	.nav a:focus-visible,
+	.nav a.active {
+		color: rgb(var(--text));
 	}
 
-	@media (max-width: 760px) {
+	@media (max-width: 640px) {
 		.shell {
+			align-items: flex-start;
 			flex-direction: column;
-			align-items: start;
 		}
 
-		.internal-links {
-			justify-content: flex-start;
+		.controls {
+			width: 100%;
+			justify-content: space-between;
 		}
 	}
 </style>

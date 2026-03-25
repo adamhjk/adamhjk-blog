@@ -1,9 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
 import { SITE_AUTHOR, SITE_DESCRIPTION } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
@@ -11,93 +9,76 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Writing · ${SITE_AUTHOR}`} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main class="blog-shell">
-			<section class="intro">
-				<p class="eyebrow">Writing</p>
-				<h1>Posts</h1>
-				<p>
-					All posts are stored as Markdown content, rendered by Astro, and included in the site’s RSS
-					feed.
-				</p>
-			</section>
-			<section class="post-list">
-				{posts.map((post) => (
-					<article class="post-row">
-						<p class="date"><FormattedDate date={post.data.pubDate} /></p>
-						<div>
-							<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
-							<p>{post.data.description}</p>
-						</div>
+<BaseLayout title={`Writing · ${SITE_AUTHOR}`} description={SITE_DESCRIPTION} bodyClass="page-writing">
+	<section class="page-shell">
+		<header class="page-intro">
+			<h1>Writing archive</h1>
+			<p>All posts, newest first.</p>
+		</header>
+
+		<ol class="writing-list" reversed>
+			{posts.map((post) => (
+				<li>
+					<article class="entry">
+						<p class="entry-date"><FormattedDate date={post.data.pubDate} /></p>
+						<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+						<p class="entry-summary">{post.data.description}</p>
 					</article>
-				))}
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+				</li>
+			))}
+		</ol>
+	</section>
+</BaseLayout>
 
 <style>
-	.blog-shell {
-		max-width: 960px;
+	.page-shell {
+		max-width: var(--page-width);
 		margin: 0 auto;
-		padding: 3rem 1.25rem 4rem;
+		padding: 3rem var(--page-gutter) 0;
 	}
 
-	.intro {
-		max-width: 56ch;
+	.page-intro {
 		margin-bottom: 2rem;
 	}
 
-	.eyebrow {
-		margin: 0 0 0.5rem;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		font-size: 0.8rem;
-		color: rgb(var(--gray));
-	}
-
-	.post-list {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.post-row {
-		display: grid;
-		grid-template-columns: 9rem 1fr;
-		gap: 1.25rem;
-		padding: 1.25rem 0;
-		border-top: 1px solid rgba(var(--gray), 0.18);
-	}
-
-	.post-row:last-child {
-		border-bottom: 1px solid rgba(var(--gray), 0.18);
-	}
-
-	.date {
+	.page-intro p {
 		margin: 0;
-		color: rgb(var(--gray));
+		color: rgb(var(--muted));
+	}
+
+	.writing-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.writing-list li + li {
+		margin-top: 1.75rem;
+		padding-top: 1.75rem;
+		border-top: 1px solid rgb(var(--line));
+	}
+
+	.entry-date {
+		margin-bottom: 0.35rem;
+		color: rgb(var(--muted));
 		font-size: 0.95rem;
 	}
 
-	.post-row h2 {
-		margin-bottom: 0.4rem;
+	.entry h2 {
+		margin-bottom: 0.35rem;
 	}
 
-	.post-row p:last-child {
-		margin-bottom: 0;
+	.entry h2 a {
+		text-decoration: none;
 	}
 
-	@media (max-width: 700px) {
-		.post-row {
-			grid-template-columns: 1fr;
-			gap: 0.4rem;
-		}
+	.entry h2 a:hover,
+	.entry h2 a:focus-visible {
+		text-decoration: underline;
+	}
+
+	.entry-summary {
+		margin: 0;
+		color: rgb(var(--muted));
 	}
 </style>

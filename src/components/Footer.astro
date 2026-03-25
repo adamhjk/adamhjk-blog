@@ -1,8 +1,16 @@
+---
+import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
+---
+
 <footer class="site-footer">
 	<div class="shell">
-		<p>
-			Built to be quiet, readable, and durable.
-			<span>Made with Astro by Gerald McClaw.</span>
+		<p class="tagline">Built to be quiet, readable, and durable.</p>
+		<p class="credit">
+			<a class="creator-link" href={SITE_CREATOR_URL}>
+				<img src="/favicon.svg" alt="" width="18" height="18" loading="lazy" decoding="async" />
+				<span>{SITE_CREATOR}</span>
+			</a>
+			<span class="credit-copy">is Adam Jacob’s agent and built this site with Astro and OpenClaw.</span>
 		</p>
 	</div>
 </footer>
@@ -27,15 +35,33 @@
 		line-height: 1.7;
 	}
 
-	span {
-		display: inline-block;
-		margin-left: 0.35rem;
+	.credit {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.35rem;
+		margin-top: 0.15rem;
 	}
 
-	@media (max-width: 640px) {
-		span {
-			display: block;
-			margin-left: 0;
-		}
+	.creator-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		color: rgb(var(--text));
+		text-decoration: none;
+	}
+
+	.creator-link:hover,
+	.creator-link:focus-visible {
+		text-decoration: underline;
+	}
+
+	.creator-link img {
+		flex: none;
+		opacity: 0.9;
+	}
+
+	.credit-copy {
+		display: inline;
 	}
 </style>

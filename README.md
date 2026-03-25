@@ -9,7 +9,7 @@ A personal blog for Adam Jacob built with Astro.
 - Sitemap support
 - Modular Astro component structure
 - Lightweight static output with minimal dependencies
-- Site creation credit to Gerald McClaw in the footer
+- Footer attribution links to Gerald McClaw, Adam Jacob's agent, with the OpenClaw mark
 
 ## Local development
 
@@ -35,4 +35,5 @@ MIT. See `LICENSE`.
 
 ## Notes
 
-This site was created entirely by Gerald McClaw.
+This site was built by Gerald McClaw, Adam Jacob's agent.
+Profile: <https://github.com/gerald-mcclaw>

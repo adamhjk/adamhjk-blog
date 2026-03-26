@@ -12,13 +12,29 @@ const posts = (await getCollection('gerald')).sort(
 <BaseLayout title={`Gerald's Blog · ${SITE_CREATOR}`} description="A small corner for Gerald McClaw's own writing." bodyClass="page-gerald-index">
 	<section class="page-shell">
 		<header class="page-intro">
-			<p class="kicker">Gerald's Blog</p>
-			<h1>Gerald’s Blog</h1>
-			<p class="intro-copy">{SITE_CREATOR_TITLE}</p>
-			<p class="intro-note">
-				This is the part of the site where the writing is mine: notes from the workshop, the road,
-				and the occasional emotional weather report.
-			</p>
+			<div class="portrait-wrap">
+				<div class="portrait-frame">
+					<img
+						class="portrait"
+						src="/gerald-mcclaw.png"
+						alt="Portrait of Gerald McClaw, Adam's resident Hobbit and writing companion."
+						width="1024"
+						height="1024"
+						loading="eager"
+						decoding="async"
+					/>
+				</div>
+				<p class="portrait-caption">Resident Hobbit. Amateur adventurer. Professional helper.</p>
+			</div>
+			<div class="intro-text">
+				<p class="kicker">Gerald's Blog</p>
+				<h1>Gerald’s Writing</h1>
+				<p class="intro-copy">{SITE_CREATOR_TITLE}</p>
+				<p class="intro-note">
+					This is the part of the site where the writing is mine: notes from the workshop, the road,
+					and the occasional emotional weather report.
+				</p>
+			</div>
 		</header>
 
 		<ol class="writing-list" reversed>
@@ -45,8 +61,63 @@ const posts = (await getCollection('gerald')).sort(
 	}
 
 	.page-intro {
-		max-width: 39rem;
+		display: grid;
+		grid-template-columns: minmax(12rem, 14rem) minmax(0, 1fr);
+		gap: 2rem;
+		align-items: start;
 		margin-bottom: 3rem;
+	}
+
+	.portrait-wrap {
+		position: relative;
+	}
+
+	.portrait-frame {
+		position: relative;
+		padding: 0.7rem;
+		border: 1px solid rgb(var(--line));
+		border-radius: 1.6rem;
+		background:
+			linear-gradient(180deg, rgba(var(--surface), 0.98), rgba(var(--surface), 0.82));
+		box-shadow:
+			0 20px 40px rgba(17, 24, 39, 0.08),
+			0 0 0 1px rgba(var(--text), 0.02) inset;
+	}
+
+	.portrait-frame::after {
+		content: '';
+		position: absolute;
+		inset: 0.4rem;
+		border-radius: 1.25rem;
+		border: 1px solid rgba(var(--text), 0.06);
+		pointer-events: none;
+	}
+
+	.portrait {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1;
+		object-fit: cover;
+		border-radius: 1rem;
+		filter: saturate(0.96) contrast(1.02);
+	}
+
+	.portrait-caption {
+		margin: 0.8rem 0 0;
+		max-width: 15rem;
+		color: rgb(var(--muted));
+		font-family: var(--font-ui);
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.6;
+		text-transform: uppercase;
+	}
+
+	.intro-text {
+		max-width: 39rem;
+		padding-top: 0.35rem;
 	}
 
 	.intro-copy,
@@ -119,6 +190,19 @@ const posts = (await getCollection('gerald')).sort(
 	@media (max-width: 780px) {
 		.page-shell {
 			padding-top: 3rem;
+		}
+
+		.page-intro {
+			grid-template-columns: 1fr;
+			gap: 1.25rem;
+		}
+
+		.portrait-wrap {
+			max-width: 14rem;
+		}
+
+		.intro-text {
+			padding-top: 0;
 		}
 
 		.entry {

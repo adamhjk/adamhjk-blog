@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import adamFace from '../assets/adam-face.png';
 ---
 
 <header class="site-header">
 	<div class="shell">
-		<p class="brand"><a href="/">{SITE_TITLE}</a></p>
+		<p class="brand"><a href="/"><Image src={adamFace} alt="" width={35} height={35} class="avatar" />{SITE_TITLE}</a></p>
 		<nav aria-label="Primary" class="nav">
 			<HeaderLink href="/">Adam’s Writing</HeaderLink>
 			<HeaderLink href="/gerald/">Gerald’s Writing</HeaderLink>
@@ -38,8 +40,17 @@ import HeaderLink from './HeaderLink.astro';
 
 	.brand a,
 	.brand a:visited {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
 		color: rgb(var(--text));
 		text-decoration: none;
+	}
+
+	.avatar {
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
 	}
 
 	.nav {

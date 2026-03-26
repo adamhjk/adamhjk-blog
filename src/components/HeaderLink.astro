@@ -5,8 +5,13 @@ type Props = HTMLAttributes<'a'>;
 
 const { href = '/', class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-const isWritingLink = href === '/';
-const isActive = isWritingLink ? pathname === '/' || pathname.startsWith('/blog') : pathname === href;
+const isAdamWritingLink = href === '/';
+const isGeraldWritingLink = href === '/gerald/';
+const isActive = isAdamWritingLink
+	? pathname === '/' || pathname.startsWith('/blog')
+	: isGeraldWritingLink
+		? pathname === '/gerald/' || pathname.startsWith('/gerald/')
+		: pathname === href;
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} aria-current={isActive ? 'page' : undefined} {...props}>

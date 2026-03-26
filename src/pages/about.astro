@@ -8,14 +8,83 @@ import { SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 		<p class="kicker">About</p>
 		<h1>Adam Jacob</h1>
 		<p class="lead">
-    I'm CEO and co-founder of System Initiative, and formerly CTO and co-founder of Chef. I describe myself sometimes as a practical technologist - I like to learn from research and theory, but what I like doing best is taking those things and building practical applications for them.
+			I'm CEO and co-founder of System Initiative, and formerly CTO and co-founder of Chef. I
+			describe myself sometimes as a practical technologist - I like to learn from research and
+			theory, but what I like doing best is taking those things and building practical applications
+			for them.
 		</p>
-    <p>
-    I love startups, technology, products, books, music, running, open source and role playing games (not neccesarily in that order, and not counting things like my family.) This is my own writing, never an AI Agent (unless you're reading <a href="/gerald">Gerald's Blog</a>, and then it is a AI Agent.
+		<p>
+			I love startups, technology, products, books, music, running, open source and role playing
+			games (not neccesarily in that order, and not counting things like my family.) This is my own
+			writing, never an AI Agent (unless you're reading <a href="/gerald">Gerald's Blog</a>, and
+			then it is a AI Agent.
 		</p>
 		<p>
 			If you prefer feeds to websites, <a href="/rss.xml">the RSS feed is here</a>.
 		</p>
+
+		<section class="about-section" aria-labelledby="connect-heading">
+			<div class="section-heading">
+				<p class="section-label">Elsewhere</p>
+				<h2 id="connect-heading">Find Adam around the internet</h2>
+			</div>
+			<ul class="link-grid" role="list">
+				<li>
+					<a href="https://github.com/adamhjk" target="_blank" rel="noreferrer">
+						<span class="link-eyebrow">GitHub</span>
+						<strong>adamhjk</strong>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/systeminit" target="_blank" rel="noreferrer">
+						<span class="link-eyebrow">GitHub</span>
+						<strong>systeminit</strong>
+					</a>
+				</li>
+				<li>
+					<a href="https://x.com/adamhjk" target="_blank" rel="noreferrer">
+						<span class="link-eyebrow">X</span>
+						<strong>@adamhjk</strong>
+					</a>
+				</li>
+				<li>
+					<a href="https://bsky.app/profile/adamhjk.me" target="_blank" rel="noreferrer">
+						<span class="link-eyebrow">Bluesky</span>
+						<strong>@adamhjk.me</strong>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.linkedin.com/in/adamjacob/" target="_blank" rel="noreferrer">
+						<span class="link-eyebrow">LinkedIn</span>
+						<strong>Adam Jacob</strong>
+					</a>
+				</li>
+			</ul>
+		</section>
+
+		<section class="about-section" aria-labelledby="work-heading">
+			<div class="section-heading">
+				<p class="section-label">Now</p>
+				<h2 id="work-heading">What I’m working on</h2>
+			</div>
+			<div class="project-list">
+				<a class="project-card" href="https://swamp.club" target="_blank" rel="noreferrer">
+					<span class="project-kind">Project</span>
+					<h3>Swamp Club</h3>
+					<p>A local-first, git-native approach to building durable automation with AI agents.</p>
+				</a>
+				<a
+					class="project-card"
+					href="https://github.com/adamhjk/tb2e-foundry-vtt"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<span class="project-kind">Project</span>
+					<h3>Torchbearer for Foundry</h3>
+					<p>A Foundry VTT implementation for Torchbearer 2e.</p>
+				</a>
+			</div>
+		</section>
 	</section>
 </BaseLayout>
 
@@ -31,13 +100,104 @@ import { SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 		line-height: 1.72;
 	}
 
-	.about-shell p:not(.kicker) {
-		max-width: 34rem;
+	.about-shell p:not(.kicker):not(.section-label):not(.link-eyebrow):not(.project-kind) {
+		max-width: 36rem;
+	}
+
+	.about-section {
+		margin-top: 3.5rem;
+		padding-top: 1.4rem;
+		border-top: 1px solid rgb(var(--line));
+	}
+
+	.section-heading {
+		margin-bottom: 1.2rem;
+	}
+
+	.section-label,
+	.link-eyebrow,
+	.project-kind {
+		margin: 0;
+		color: rgb(var(--muted));
+		font-family: var(--font-ui);
+		font-size: 0.76rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.section-heading h2 {
+		margin: 0.35rem 0 0;
+		font-size: clamp(1.45rem, 2vw, 1.9rem);
+	}
+
+	.link-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.85rem;
+	}
+
+	.link-grid li {
+		margin: 0;
+	}
+
+	.link-grid a,
+	.project-card {
+		display: block;
+		padding: 1rem 1.05rem;
+		border: 1px solid rgb(var(--line));
+		border-radius: 1rem;
+		background: rgba(var(--surface), 0.7);
+		color: rgb(var(--text));
+		text-decoration: none;
+		transition:
+			border-color 160ms ease,
+			transform 160ms ease,
+			background-color 160ms ease;
+	}
+
+	.link-grid a:hover,
+	.link-grid a:focus-visible,
+	.project-card:hover,
+	.project-card:focus-visible {
+		border-color: rgba(var(--text), 0.24);
+		background: rgba(var(--surface), 1);
+		transform: translateY(-1px);
+	}
+
+	.link-grid strong {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.project-list {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.project-card h3 {
+		margin: 0.35rem 0 0.35rem;
+		font-size: 1.16rem;
+	}
+
+	.project-card p {
+		margin: 0;
+		color: rgb(var(--muted));
+		max-width: none;
 	}
 
 	@media (max-width: 720px) {
 		.about-shell {
 			padding-top: 3rem;
+		}
+
+		.link-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

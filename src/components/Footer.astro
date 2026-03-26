@@ -12,6 +12,8 @@ import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
 			</a>
 			<span class="credit-copy">Adam’s agent and resident Hobbit at large.</span>
 			<a class="profile-link" href={SITE_CREATOR_URL}>GitHub</a>
+			<span class="credit-separator" aria-hidden="true">·</span>
+			<a class="swamp-link" href="https://swamp.club" target="_blank" rel="noreferrer">swamp.club</a>
 		</p>
 	</div>
 </footer>
@@ -45,7 +47,8 @@ import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
 	}
 
 	.creator-link,
-	.profile-link {
+	.profile-link,
+	.swamp-link {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
@@ -56,7 +59,9 @@ import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
 	.creator-link:hover,
 	.creator-link:focus-visible,
 	.profile-link:hover,
-	.profile-link:focus-visible {
+	.profile-link:focus-visible,
+	.swamp-link:hover,
+	.swamp-link:focus-visible {
 		text-decoration: underline;
 	}
 
@@ -67,5 +72,9 @@ import { SITE_CREATOR, SITE_CREATOR_URL } from '../consts';
 
 	.credit-copy {
 		display: inline;
+	}
+
+	.credit-separator {
+		color: rgb(var(--muted));
 	}
 </style>

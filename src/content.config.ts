@@ -8,6 +8,7 @@ const entrySchema = ({ image }) =>
 		description: z.string(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
+		draft: z.boolean().default(false),
 		heroImage: z.optional(image()),
 	});
 

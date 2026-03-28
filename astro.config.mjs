@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-	site: 'https://adamjacob.com',
+	site: 'https://www.adamhjk.com',
 	integrations: [mdx(), sitemap()],
 });

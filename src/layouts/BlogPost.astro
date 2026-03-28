@@ -8,9 +8,10 @@ import { SITE_AUTHOR } from '../consts';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, draft = false } = Astro.props;
+const socialImage = `/social/blog/${Astro.params?.slug ?? ''}.png`;
 ---
 
-<BaseLayout title={`${title} · ${SITE_AUTHOR}`} description={description} bodyClass="page-post">
+<BaseLayout title={`${title} · ${SITE_AUTHOR}`} description={description} bodyClass="page-post" socialImage={socialImage}>
 	<article class="post-shell">
 		<header class="post-meta">
 			<p class="kicker"><a href="/">Writing</a></p>

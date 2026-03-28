@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+const posts = (await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
@@ -25,7 +25,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 					<article class="entry">
 						<p class="entry-date"><FormattedDate date={post.data.pubDate} /></p>
 						<div class="entry-body">
-							<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+							<h2>
+								<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+								{post.data.draft && <span class="draft-badge">Draft</span>}
+							</h2>
 							<p class="entry-summary">{post.data.description}</p>
 						</div>
 					</article>
@@ -86,8 +89,26 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 	}
 
 	.entry-body h2 {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.6rem;
 		margin-bottom: 0.35rem;
 		font-size: clamp(1.5rem, 2.4vw, 2rem);
+	}
+
+	.draft-badge {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.18rem 0.55rem;
+		border: 1px solid rgb(var(--line));
+		border-radius: 999px;
+		color: rgb(var(--muted));
+		font-family: var(--font-ui);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 	}
 
 	.entry-body h2 a {

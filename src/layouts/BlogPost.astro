@@ -11,7 +11,16 @@ const { title, description, pubDate, updatedDate, heroImage, draft = false } = A
 const socialImage = `/social/blog/${Astro.params?.slug ?? ''}.png`;
 ---
 
-<BaseLayout title={`${title} · ${SITE_AUTHOR}`} description={description} bodyClass="page-post" socialImage={socialImage}>
+<BaseLayout
+	title={`${title} · ${SITE_AUTHOR}`}
+	description={description}
+	bodyClass="page-post"
+	socialImage={socialImage}
+	ogType="article"
+	author={SITE_AUTHOR}
+	publishedTime={pubDate}
+	modifiedTime={updatedDate}
+>
 	<article class="post-shell">
 		<header class="post-meta">
 			<p class="kicker"><a href="/">Writing</a></p>

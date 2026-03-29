@@ -4,6 +4,7 @@ import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import AdamFace from '../assets/adam-face.png';
 import { SITE_TITLE } from '../consts';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
 	title: string;
@@ -68,3 +69,5 @@ const socialImageURL = socialImage ? new URL(socialImage, Astro.site) : new URL(
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImageURL} />
+
+<Analytics />

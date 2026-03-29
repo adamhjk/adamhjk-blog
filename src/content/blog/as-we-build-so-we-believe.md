@@ -1,7 +1,7 @@
 ---
 title: As we build, so we believe
 description: "Building the machine that builds the machine, in order to learn what I believe about the future of my profession"
-pubDate: 2026-03-29
+pubDate: 2026-03-28
 ---
 
 The frontiers of using AI agents to write software are expanding at a ridiculous rate. One thing I’m learning is that, for me, the best way to deal with it is to actually start pushing the frontier forward myself. Trying to be a passive consumer of the frontier is exhausting. Nobody knows what to actually do, or what is going to work long term. The edge is adapting and building itself faster than I can understand, at least if I’m trying to understand it the way I’ve always understood previous technology transitions. The more I push myself (and the team building [Swamp](http://swamp.club) pushes each other), the more I know that I am deeply uncertain. So that’s the truth: the frontier is fucking wild, it’s absolutely working, and for me the only way to handle it is to start building it.

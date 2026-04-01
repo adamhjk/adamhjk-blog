@@ -16,8 +16,10 @@
     "@astrojs/mdx": "5.0.2",
     "@astrojs/rss": "4.0.17",
     "@astrojs/sitemap": "3.7.1",
+    "@terrastruct/d2": "^0.1.33",
     "@vercel/analytics": "^2.0.1",
     "astro": "6.0.8",
+    "astro-d2": "^0.10.0",
     "satori": "^0.26.0",
     "sharp": "0.34.5"
   },

@@ -7,5 +7,13 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
 	site: 'https://www.adamhjk.com',
-	integrations: [astroD2(), mdx(), sitemap()],
+	integrations: [
+		astroD2({
+			experimental: {
+				useD2js: true,
+			},
+		}),
+		mdx(),
+		sitemap(),
+	],
 });

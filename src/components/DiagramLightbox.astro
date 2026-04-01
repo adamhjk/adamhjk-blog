@@ -91,64 +91,60 @@
 </style>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const lightbox = document.getElementById('diagram-lightbox');
-		if (!lightbox) return;
+	const lightbox = document.getElementById('diagram-lightbox')!;
+	const img = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
+	const scrollContainer = lightbox.querySelector('.lightbox-scroll') as HTMLDivElement;
+	let isZoomed = false;
 
-		const img = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
-		const scrollContainer = lightbox.querySelector('.lightbox-scroll') as HTMLDivElement;
-		let isZoomed = false;
+	function open(src: string) {
+		img.src = src;
+		isZoomed = false;
+		scrollContainer.classList.add('fit');
+		lightbox.setAttribute('aria-hidden', 'false');
+		document.body.style.overflow = 'hidden';
+	}
 
-		function open(src: string) {
-			img.src = src;
-			isZoomed = false;
+	function close() {
+		lightbox.setAttribute('aria-hidden', 'true');
+		document.body.style.overflow = '';
+		img.src = '';
+	}
+
+	// Toggle between fit-to-screen and native size
+	img.addEventListener('click', (e) => {
+		e.stopPropagation();
+		isZoomed = !isZoomed;
+		if (isZoomed) {
+			scrollContainer.classList.remove('fit');
+			img.style.cursor = 'zoom-out';
+		} else {
 			scrollContainer.classList.add('fit');
-			lightbox.setAttribute('aria-hidden', 'false');
-			document.body.style.overflow = 'hidden';
+			img.style.cursor = 'zoom-in';
 		}
+	});
 
-		function close() {
-			lightbox.setAttribute('aria-hidden', 'true');
-			document.body.style.overflow = '';
-			img.src = '';
+	// Click any D2 diagram to open
+	document.addEventListener('click', (e) => {
+		const target = e.target as HTMLElement;
+		if (target.tagName === 'IMG' && target.getAttribute('src')?.includes('/d2/')) {
+			open((target as HTMLImageElement).src);
 		}
+	});
 
-		// Toggle between fit-to-screen and native size
-		img.addEventListener('click', (e) => {
-			e.stopPropagation();
-			isZoomed = !isZoomed;
-			if (isZoomed) {
-				scrollContainer.classList.remove('fit');
-				img.style.cursor = 'zoom-out';
-			} else {
-				scrollContainer.classList.add('fit');
-				img.style.cursor = 'zoom-in';
-			}
-		});
+	// Close on backdrop click
+	lightbox.addEventListener('click', (e) => {
+		if (e.target === lightbox || e.target === scrollContainer) {
+			close();
+		}
+	});
 
-		// Click any D2 diagram to open
-		document.addEventListener('click', (e) => {
-			const target = e.target as HTMLElement;
-			if (target.tagName === 'IMG' && target.getAttribute('src')?.includes('/d2/')) {
-				open((target as HTMLImageElement).src);
-			}
-		});
+	// Close button
+	lightbox.querySelector('.lightbox-close')?.addEventListener('click', close);
 
-		// Close on backdrop click
-		lightbox.addEventListener('click', (e) => {
-			if (e.target === lightbox || e.target === scrollContainer) {
-				close();
-			}
-		});
-
-		// Close button
-		lightbox.querySelector('.lightbox-close')?.addEventListener('click', close);
-
-		// Escape key
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') {
-				close();
-			}
-		});
+	// Escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') {
+			close();
+		}
 	});
 </script>

@@ -24,18 +24,14 @@ So this morning, I wanted to try again. This time, making sure that my system wo
 - Data needed to be passed between isolated sandboxes
 - Nothing could have access to a non-deterministic agent - as much as possible needed to be deterministic
 
-Essentially, secure the process by reducing the risk that an LLM could do anything untoward even if you sent me a prompt injection attack. I needed to move my automation *out* of the OpenClaw agents context (which is a lethal trifecta fantasy realm,) and into a deterministic *workflow* using [swamp](https://swamp.club).
+Essentially, secure the process by reducing the risk that an LLM could do anything untoward even if you sent me a prompt injection attack. I needed to move my automation *out* of the OpenClaw agents context (which is a lethal trifecta fantasy realm,) and into a deterministic *workflow* using [swamp](https://swamp.club). 
 
-If you aren't familiar, swamp is an adaptive AI automation platform. It lets you create repeatable workflows to automate anything by *automatically extending itself* to adapt to your needs. It consists of a workflow engine, extensions to add capabilities, a CLI for humans and agents to drive, and a pile of skills to help agents get the job done. For the truly nerdy amongst you - think of it like a software architecture pattern for building great automation, expressed as skills and a CLI.
-
-The agent built me replacement automation that consisted of 8 different reusable models. They minimized the use of LLMs, reducing it from having a session with maximum tool and MCP availability to a single API call directly to the LLM, with no tools enabled. It has pervasive schema validation, both for requests and responses. It does deterministic sanitization of inputs and outputs.
+The agent built me replacement automation that consisted of 8 different reusable models (typescript code that gets called by workflows, and stores its data for later retrieval,) one for each step of my process. They minimized the use of LLMs, reducing it from having a session with maximum tool and MCP availability to a single API call directly to the LLM, with no tools enabled. It has pervasive schema validation, both for requests and responses. It does deterministic sanitization of inputs and outputs (like parsing the response from an LLM, or sanitizing unsafe inputs).
 
 The result is a workflow Gerald can call to do the task, with full visibility into what is going on (so it can help troubleshoot failures), that completely breaks one leg of the trifecta and blunts the other 2:
 
-- There is no way to exfiltrate the data, because without tool calls, the LLM cannot communicate with the outside world. This is leg 3 broken.
 - The LLM does have access to my personal data, but only in minimized, deterministic ways. It cannot start searching based on untrusted inputs, as it has no tools to do so, and no data in its context. This is minimizing leg 1.
-- Exposure to untrusted content is still present - but we minimize the risk by doing deterministic sanitization of both the inputs and the outputs. You could still give me bad inputs, but it's likely to just break the workflow rather than inject bad behavior.
+- Exposure to untrusted content is still present - but we minimize the risk by doing deterministic sanitization of both the inputs and the outputs. You could still give me bad inputs, but it's likely to just break the workflow rather than inject bad behavior. This is minimizing leg 2.
+- There is no way to exfiltrate the data, because without tool calls, the LLM cannot communicate with the outside world. This is leg 3 broken.
 
-It took the exact same amount of time to develop the safer, more deterministic Swamp workflow as it did for Gerald to cook up the original version that was plagued by the lethal trifecta. It's in his memory to do that every time now, even if I don't mention it directly. 
-
-Give me a shout if you want me to show you how to do it for yourself. Keep the claw yummies, and avoid the lethal trifecta.
+It took the exact same amount of time to develop the safer, more deterministic Swamp workflow as it did for Gerald to cook up the original version that was plagued by the lethal trifecta. It's in his memory to do that now as well. Gerald and I are thrilled.

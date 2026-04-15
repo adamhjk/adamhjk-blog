@@ -1,0 +1,33 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BookChapter from '../../layouts/BookChapter.astro';
+
+export async function getStaticPaths() {
+	const allChapters = await getCollection('sfosc');
+	const chapters = allChapters
+		.filter((c) => c.id !== 'index')
+		.sort((a, b) => a.data.weight - b.data.weight);
+
+	return chapters.map((chapter, i) => {
+		const prev = i > 0 ? { id: chapters[i - 1].id, title: chapters[i - 1].data.title } : null;
+		const next = i < chapters.length - 1 ? { id: chapters[i + 1].id, title: chapters[i + 1].data.title } : null;
+		return {
+			params: { slug: chapter.id },
+			props: { chapter, prev, next },
+		};
+	});
+}
+
+interface Props {
+	chapter: CollectionEntry<'sfosc'>;
+	prev: { id: string; title: string } | null;
+	next: { id: string; title: string } | null;
+}
+
+const { chapter, prev, next } = Astro.props;
+const { Content } = await render(chapter);
+---
+
+<BookChapter title={chapter.data.title} description={chapter.data.description} prev={prev} next={next}>
+	<Content />
+</BookChapter>

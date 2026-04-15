@@ -1,0 +1,192 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_AUTHOR } from '../../consts';
+
+const allChapters = await getCollection('sfosc');
+const indexEntry = allChapters.find((c) => c.id === 'index');
+const chapters = allChapters
+	.filter((c) => c.id !== 'index')
+	.sort((a, b) => a.data.weight - b.data.weight);
+
+let IndexContent;
+if (indexEntry) {
+	const rendered = await render(indexEntry);
+	IndexContent = rendered.Content;
+}
+---
+
+<BaseLayout
+	title={`SFOSC Book · ${SITE_AUTHOR}`}
+	description="The Sustainable Free and Open Source Communities Book by Adam Jacob"
+	bodyClass="page-post"
+>
+	<section class="book-shell">
+		<header class="book-header">
+			<p class="kicker"><a href="/">Writing</a></p>
+			<h1>The Sustainable Free and Open Source Communities Book</h1>
+			<p class="dek">By Adam Jacob · Originally published December 2018</p>
+		</header>
+
+		{IndexContent && (
+			<div class="prose intro-prose">
+				<IndexContent />
+			</div>
+		)}
+
+		<nav class="toc" aria-label="Table of Contents">
+			<h2>Chapters</h2>
+			<ol class="chapter-list">
+				{chapters.map((chapter) => (
+					<li>
+						<a href={`/sfosc/${chapter.id}/`}>
+							<span class="chapter-title">{chapter.data.title}</span>
+							{chapter.data.description && chapter.data.description !== chapter.data.title && (
+								<span class="chapter-desc">{chapter.data.description}</span>
+							)}
+						</a>
+					</li>
+				))}
+			</ol>
+		</nav>
+
+		<div class="start-reading">
+			<a href="/sfosc/introduction/">Start Reading →</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.book-shell {
+		max-width: calc(var(--article-width) + 8rem);
+		margin: 0 auto;
+		padding: 4.5rem var(--page-gutter) 0;
+	}
+
+	.book-header {
+		max-width: var(--article-width);
+		margin: 0 auto 2.75rem;
+	}
+
+	.book-header .kicker {
+		margin-bottom: 1rem;
+	}
+
+	.book-header .kicker a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.dek {
+		max-width: 34rem;
+		margin-bottom: 1.15rem;
+		color: rgb(var(--muted));
+		font-size: 1.13rem;
+		line-height: 1.68;
+	}
+
+	.intro-prose {
+		max-width: var(--article-width);
+		margin: 0 auto 3rem;
+	}
+
+	.intro-prose :global(> p:first-child) {
+		font-size: 1.15em;
+		line-height: 1.72;
+	}
+
+	.intro-prose :global(a) {
+		text-decoration-thickness: 0.06em;
+	}
+
+	.toc {
+		max-width: var(--article-width);
+		margin: 0 auto 4rem;
+		padding-top: 2rem;
+		border-top: 1px solid rgb(var(--line));
+	}
+
+	.toc h2 {
+		margin-bottom: 1.5rem;
+	}
+
+	.chapter-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		counter-reset: chapter;
+	}
+
+	.chapter-list li {
+		counter-increment: chapter;
+		border-bottom: 1px solid rgb(var(--line));
+	}
+
+	.chapter-list li:first-child {
+		border-top: 1px solid rgb(var(--line));
+	}
+
+	.chapter-list a {
+		display: block;
+		padding: 1.2rem 0;
+		color: rgb(var(--text));
+		text-decoration: none;
+	}
+
+	.chapter-list a:hover .chapter-title {
+		text-decoration: underline;
+		text-decoration-thickness: 0.06em;
+	}
+
+	.chapter-title {
+		display: block;
+		font-size: 1.15rem;
+		font-weight: 600;
+		line-height: 1.4;
+	}
+
+	.chapter-title::before {
+		content: counter(chapter) ". ";
+		color: rgb(var(--muted));
+	}
+
+	.chapter-desc {
+		display: block;
+		margin-top: 0.3rem;
+		color: rgb(var(--muted));
+		font-size: 0.95rem;
+		line-height: 1.55;
+	}
+
+	.start-reading {
+		max-width: var(--article-width);
+		margin: 2.5rem auto 4rem;
+	}
+
+	.start-reading a {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.75rem 1.5rem;
+		border: 1px solid rgb(var(--line));
+		border-radius: 0.5rem;
+		color: rgb(var(--text));
+		font-family: var(--font-ui);
+		font-size: 1rem;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.start-reading a:hover {
+		border-color: rgb(var(--text));
+	}
+
+	@media (max-width: 720px) {
+		.book-shell {
+			padding-top: 3rem;
+		}
+
+		.dek {
+			font-size: 1.05rem;
+		}
+	}
+</style>

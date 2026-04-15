@@ -27,6 +27,3 @@ most sustainable model of helping their users and customers solve their
 problems, will be the winners. There is no comparison to the impact we have on
 each other when we form supportive, inclusive, meaningful communities. I hope
 you'll join me.
-
-For next steps: explore the [principles](https://github.com/sfosc/sfosc/tree/master/content/en/docs/Principles), [business
-models](https://github.com/sfosc/sfosc/tree/master/content/en/docs/Business%20Models)

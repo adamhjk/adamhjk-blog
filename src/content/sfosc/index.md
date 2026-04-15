@@ -5,15 +5,7 @@ pubDate: 2018-12-06
 weight: 2
 ---
 
-This book is the collection of thoughts and research that resulted in the
-[principles](https://github.com/sfosc/sfosc/tree/master/content/en/docs/Principles), [business models](https://github.com/sfosc/sfosc/tree/master/content/en/docs/Business%20Models), and [social
-contracts](https://github.com/sfosc/sfosc/tree/master/content/en/docs/Social%20Contracts). It walks through
-how I analyzed the problem of building sustainable open source communities
-through the lens of John Rawls' Theory of Justice, and pulls from that analysis
-the items in the principles. 
-
-If you want to contribute to the conversation around Sustainable Free and Open
-Source Communities, it's the place to begin reading.
+This book is the collection of thoughts and research I did that analyzed the problem of building sustainable open source communities through the lens of John Rawls' Theory of Justice.
 
 I want to give thanks to the many people who read drafts, bounced around ideas,
 or were kind enough to let me talk (and talk) about these ideas. They may or

@@ -12,6 +12,14 @@ const entrySchema = ({ image }) =>
 		heroImage: z.optional(image()),
 	});
 
+const bookSchema = () =>
+	z.object({
+		title: z.string(),
+		description: z.string(),
+		pubDate: z.coerce.date(),
+		weight: z.number(),
+	});
+
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	schema: entrySchema,
@@ -22,4 +30,9 @@ const gerald = defineCollection({
 	schema: entrySchema,
 });
 
-export const collections = { blog, gerald };
+const sfosc = defineCollection({
+	loader: glob({ base: './src/content/sfosc', pattern: '**/*.{md,mdx}' }),
+	schema: bookSchema,
+});
+
+export const collections = { blog, gerald, sfosc };

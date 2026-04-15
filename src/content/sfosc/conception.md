@@ -55,7 +55,6 @@ community must create a model where the majority of the value it creates flows
 to its benefit. Take the example of Chef being Open Core from above. Any value
 created on the proprietary side of the line is not available to the broader
 community. While the software itself is an infinite resource, we've created
-a non-infinite downstream pool - we reserved some benefit for a subset of the
-community, my paying customers. As a result, we created a user community
-- which, while it may be sustainable as a software business, is not sustainable
+a non-infinite downstream pool — we reserved some benefit for a subset of the
+community, my paying customers. As a result, we created a user community — which, while it may be sustainable as a software business, is not sustainable
 as a community resource.

@@ -36,8 +36,7 @@ participation or advancement is at the personal whim of the founder. They may
 do a good job of ensuring that both fair equality of opportunity and the
 difference principle are applied in their personal decision making - but since
 the position in which their authority is vested cannot be held by any member of
-the community, it ultimately fails to satisfy fair equality of opportunity
-- which means they are un-just at their foundation. 
+the community, it ultimately fails to satisfy fair equality of opportunity — which means they are un-just at their foundation. 
 
 Similar problems plague the loose consensus decision making of the Rust
 community - a community that I would say is a model for pleasant and meaningful

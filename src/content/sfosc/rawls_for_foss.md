@@ -52,8 +52,7 @@ doesn't matter - only that it upholds the four freedoms.
 
 This is, of course, not quite enough. We want more than just basic liberty in
 our lives - the “whatsoever else we might want” part of Rawls conception of the
-good. We want prestige, we want influence, we want money, we want friendship
-- the list is long. Simply having the software isn’t worth much if we can’t
+good. We want prestige, we want influence, we want money, we want friendship — the list is long. Simply having the software isn’t worth much if we can’t
 ensure a long life together as a community. It may give us liberty, but it
 won’t give us fraternity.
 

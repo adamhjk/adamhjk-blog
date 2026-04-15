@@ -88,15 +88,13 @@ channels populated with employees Chef pays. With community members dedicated
 to sustaining the software. This sucks for me, but it sucks worse for those who
 volunteer their time and effort. How is it a good idea that the community
 doesn't get back improvements to the software, directly or indirectly, in
-return for their efforts? This isn't helping a single individual over the hump
-- this is supporting billion dollar revenue streams, with "free" labor, because
+return for their efforts? This isn't helping a single individual over the hump — this is supporting billion dollar revenue streams, with "free" labor, because
 that's the way it is.
 
 Here is another true story from Chef: Over the years, many businesses have
 integrated Chef into their platforms. Many of them created their own
 proprietary layer on top of Chef, in direct competition with us. An example of
-such a business was AWS OpsWorks - a hosted management platform built on Chef
-- which was created by a team in Germany, and then bought by AWS. It's the
+such a business was AWS OpsWorks - a hosted management platform built on Chef — which was created by a team in Germany, and then bought by AWS. It's the
 nightmare scenario of the people behind the Commons Clause - the fear that AWS
 would destroy my business, which is funding the software, by launching
 a competitor.

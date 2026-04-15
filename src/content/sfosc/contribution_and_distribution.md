@@ -91,8 +91,7 @@ attributes about copyrights:
 Let’s take a different tack - assume in the story above, the downstream decided
 to continue forward, but not to contribute back. This would be a "fork" - a new
 distribution, with a shared origin, but now divergent from the upstream. How
-the community feels about this is one of the primary drivers of license choice
-- the copyleft licenses put the requirement for downstream works as a viral
+the community feels about this is one of the primary drivers of license choice — the copyleft licenses put the requirement for downstream works as a viral
 component of their liberty: you can take the work, you can create a derivative,
 but you must ensure the same freedoms for your derivative as those you
 enjoyed. The non-copyleft licenses vary widely in what they cover, but the

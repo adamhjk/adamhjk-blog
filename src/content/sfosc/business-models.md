@@ -10,8 +10,7 @@ it is better when we have more of the software in the open, not less, and the
 finger points strongly at using not only copyleft licenses, but the strongest
 possible variation that makes sense for the type of software we are building.
 Where things get more complex is when we start to creep Rawls back in: we want
-the primary good to increase, but we also want other things. Money, for example
-- both directly in our own pockets, but also as a source of growth for the
+the primary good to increase, but we also want other things. Money, for example — both directly in our own pockets, but also as a source of growth for the
 software itself. While having software under a strong copyleft might be
 appealing for some cases, clearly for other community use cases it closes the
 door. When we start to look at these business personas, the question becomes:
@@ -217,8 +216,7 @@ makes it particularly attractive, from a Rawls perspective, due to the ability
 for individual contributors to receive a portion of the collective funding.
 Contributing to webpack immediately brings you to the table as a possible
 recipient of benefit from webpack's donations. A more historical example is
-[Vim](https://www.vim.org/sponsor/), which has long accepted donations
-- originally to fund Vim's continued development by its primary author, Bram
+[Vim](https://www.vim.org/sponsor/), which has long accepted donations — originally to fund Vim's continued development by its primary author, Bram
 Moolenaar, and once he had a stable job, funneled to a [charity for children in
 Uganda](https://iccf-holland.org/). Clearly the model followed by webpack can
 create a sustainable open source community under our terms so far. Vim is
@@ -277,8 +275,7 @@ funded by Red Hat, such as Fedora, and most recently CentOS.) The side effect
 is that Red Hat is always the upstream for their software, regardless of its
 origin - Red Hat Enterprise Linux is a collection of free software, bundled
 together, supported, and distributed by Red Hat, but with commercial terms
-attached. You are free to make a derivative work of Red Hat Enterprise Linux
-- provided you remove any of the Red Hat trademarks from your derivative. The
+attached. You are free to make a derivative work of Red Hat Enterprise Linux — provided you remove any of the Red Hat trademarks from your derivative. The
 resulting work benefits from all the effort Red Hat puts in to Enterprise
 Linux, but requires a reasonable amount of effort to produce (CentOS is one
 example, Oracle Enterprise Linux is another.) You can see a similar

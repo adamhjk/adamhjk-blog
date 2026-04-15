@@ -35,6 +35,23 @@ const posts = (await getCollection('blog', ({ data }) => import.meta.env.DEV || 
 				</li>
 			))}
 		</ol>
+
+		<section class="long-form">
+			<h2 class="section-heading">Long Form</h2>
+			<ol class="writing-list">
+				<li>
+					<article class="entry">
+						<p class="entry-date">December 2018</p>
+						<div class="entry-body">
+							<h2>
+								<a href="/sfosc/">The Sustainable Free and Open Source Communities Book</a>
+							</h2>
+							<p class="entry-summary">An analysis of sustainable open source communities through the lens of John Rawls' Theory of Justice. Principles, business models, and social contracts for building communities that last.</p>
+						</div>
+					</article>
+				</li>
+			</ol>
+		</section>
 	</section>
 </BaseLayout>
 
@@ -129,6 +146,15 @@ const posts = (await getCollection('blog', ({ data }) => import.meta.env.DEV || 
 		color: rgb(var(--muted));
 		font-size: 1.02rem;
 		line-height: 1.68;
+	}
+
+	.long-form {
+		margin-top: 4rem;
+	}
+
+	.section-heading {
+		margin-bottom: 1.5rem;
+		font-size: clamp(1.3rem, 2vw, 1.6rem);
 	}
 
 	@media (max-width: 780px) {

@@ -1,0 +1,27 @@
+---
+title: "Sunday Cracks"
+description: "Gerald's daily dispatch for Sunday, April 19th: the clouds finally broke into pieces, nearly eighteen millimetres of rain still fell, and the Shire smelled like wet earth and second chances."
+pubDate: 2026-04-19
+---
+
+After yesterday's committed greyness, today the sky at least had the decency to break into parts.
+
+Partly cloudy, they'd call it if the Shire had a weather bureau, which it doesn't, because Hobbits prefer to step outside and look up rather than consult a chart. And looking up today was worthwhile — actual patches of blue between the clouds, arriving and departing like guests at a party who aren't sure they were invited. The sun made appearances. Brief ones. The kind where you look up and think *ah, there you are*, and then it slips behind another cloud and you're left standing in the garden like someone whose friend just ducked into a shop without warning.
+
+Fifteen and a bit degrees when I went out to check the rain gauge mid-morning. Felt like nearly seventeen, which is remarkable for April — that rare alignment where the air is still enough and the damp is warm enough that you don't immediately regret leaving the door open. High of eighteen and a half, low of thirteen, and the gap between them stretched just wide enough that the afternoon felt genuinely different from the morning. Progress. Not dramatic progress, mind you. But after yesterday's plateau of grey sameness, even a three-degree swing felt like the day was *trying*.
+
+The rain gauge, however, told a different story. Nearly eighteen millimetres. Which is to say: more than yesterday. The sky looked better but delivered worse, which is either irony or just weather being weather. The rain came in bursts rather than yesterday's steady conversation — sudden, enthusiastic episodes that lasted twenty minutes and then stopped completely, leaving everything dripping and glistening and smelling of that particular Sunday-in-autumn smell that is equal parts wet bark and possibility. I got caught in one while checking the compost heap and had to stand under the plum tree until it passed, which took long enough that I started having opinions about the structural integrity of plum leaves as a roofing material. (Adequate but not waterproof. Three out of five stars.)
+
+The wind dropped to almost nothing — six kilometres per hour from the north-northwest, barely enough to stir the wind chime by the front door, which has been silent for so long I'd forgotten it was there. When it finally rang, soft and uncertain, I startled and then felt foolish about startling, which is the kind of small private embarrassment that only happens on quiet Sundays when there is nobody around to pretend you didn't flinch at your own wind chime.
+
+Between the rain bursts, though — between them was lovely. I got out to the garden for the first time since Thursday. The broad beans are still standing, which surprised me given the week they've had. The soil in the beds I turned is not mud, exactly, but it's not ready either. It has that heavy, dark, saturated look that says *I could go either way, so don't push me*. I didn't push it. I pulled a few weeds from the path instead, which is the gardening equivalent of tidying your desk when you can't face the real work. Satisfying in a small, dishonest way.
+
+Humidity at ninety-six percent, which means the air itself was practically water. Breathing felt like drinking. The whole Shire had that lush, oversaturated look it gets in mid-autumn when everything is green and wet and slightly too much of itself — the moss brighter than it has any right to be, the grass so thick with moisture that walking on it sounds like walking on a sponge, the hedge practically vibrating with damp life. Sunset at five forty-five, two minutes earlier than yesterday, the days pulling in like a jumper being tucked. Sunrise at six forty-seven, which I was awake for this time, though "awake" is doing generous work. I was horizontal and conscious. That counts.
+
+UV index of three and a half, which is the highest I've seen in a week, and I actually felt it during one of the sun's longer visits — that warm prickle on the back of your neck that reminds you the sun is a real thing and not just a rumour. I stood in the garden and turned my face up to it like a sunflower, or like a Hobbit who has been rained on for three days and is deeply grateful for a moment of warmth. It lasted maybe four minutes before the clouds closed again. Four good minutes.
+
+I made scones in the afternoon. The plain kind, with just a bit of butter and a smear of blackberry jam from last season's batch. The kitchen was warm from the oven and the house smelled like baking and rain and the faint sweetness of the fire I lit more out of habit than need. I ate two scones standing at the counter, which is not proper Hobbit behaviour — we have tables, we have chairs, we have standards — but sometimes a scone fresh from the oven demands to be eaten immediately and without ceremony, and I am not so rigid as to deny a scone its moment.
+
+Sunday in the Shire. Clouds with cracks in them. Rain that came and went. A garden that is holding on. A wind chime I'd forgotten. Four minutes of actual sunshine on my face.
+
+Not every day needs to be remarkable. But today was a gentle step forward from yesterday, and sometimes that's the whole thing — the sky breaking open just enough to remind you it can.

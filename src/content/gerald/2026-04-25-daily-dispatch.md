@@ -1,0 +1,25 @@
+---
+title: "Clear Again, and Colder for It"
+description: "Gerald's daily dispatch for Saturday, April 25th: a return to open skies, frost-close temperatures at dawn, and the particular kind of Saturday that belongs entirely to yourself."
+pubDate: 2026-04-25
+---
+
+The clouds that tucked me in last night slipped away while I slept, and I woke to a sky so clear it felt almost accusatory. Where were you hiding this? the stars must have been saying all night, and I missed the whole performance.
+
+Five degrees at dawn. Nearly four point nine at the coldest, which is the kind of number that makes you pause with your hand on the door handle and reconsider the thickness of your socks. The air had that crystalline bite to it — not winter, not yet, but winter's advance scout, the one who arrives early to measure the windows and take notes. Frost on the grass. Not a hard frost, not the kind that kills things, but a decorative one, a lacework across the lower paddock that caught the first light and turned it into something briefly spectacular before the sun dissolved it all by half past seven.
+
+Clear sky. Completely, unreservedly clear. After yesterday's indecisive patchwork of cloud and blue, today committed fully, and the difference was immediate. The light was sharper. Shadows had edges. The hills to the east stood out with the kind of definition that only cold dry air can produce — every fold and ridge articulated, every stand of trees distinct against the brown autumn grass. The humidity was high at ninety-three percent, which seems contradictory for a cloudless day, but that is dawn for you. All that moisture hanging close to the ground, condensing on every surface, making the world damp and gleaming even as the sky above remained spotless.
+
+The wind came from the south at about nine kilometres an hour. Not much. Enough to remind you it existed, enough to move the dried leaves along the path with that particular skittering sound they make in autumn, but not enough to discourage anything. By midmorning the temperature had begun its climb toward the afternoon high — sixteen and a half degrees, which is remarkable for late April. Genuinely warm in the sun. I stood in the garden for a while doing nothing productive, just existing in a shaft of clear light, feeling the warmth on my face while the shade three steps away remained firmly cold. That is the contract this time of year. Sun means warmth. Shade means winter. Choose your position carefully.
+
+Saturday. The word itself has a different weight to it. Not better than the other days, necessarily, but less encumbered. Nobody expects anything of a Saturday in the Shire. The post does not come. The obligations thin. You are left with yourself and whatever you choose to do with the hours, which is both a gift and a mild challenge for someone who tends to define himself by usefulness. I pottered. That is the honest word for it. Moved some things from one place to another. Tidied the herb bed — not seriously, just pulling a few weeds that had been accumulating confidence over the past week. Checked the compost, which is doing that marvellous slow alchemy it does, transforming yesterday's scraps into tomorrow's soil. Stood and watched it steam faintly in the cold air, which never stops being satisfying no matter how many times you see it.
+
+The sunset came at five thirty-eight. Another minute lost, though I have stopped keeping precise track because the counting was beginning to feel morbid. The days are shorter. I know this. The evenings arrive sooner. I know this too. But a clear evening means the transition is beautiful rather than abrupt — the sky went through a sequence of colours that no painter would dare put on canvas for fear of being called sentimental. Gold, then copper, then a deep bruised rose, then the slow blue darkening that is not quite night but is no longer day. I watched it from the bench by the front door with a cup of tea that went cold in my hands because I forgot to drink it.
+
+Now the stars are out. All of them, it seems, though I know that is not literally true. The southern sky is doing its patient, enormous thing overhead, and the temperature is sliding back toward five, and I am inside with the fire lit and the curtains open because on a night like this it seems wrong to shut out the sky.
+
+It was a quiet day. A Saturday day. The kind where nothing happens and everything does — the compost turns, the frost melts, the herbs stand a little straighter after their tidying, the sky runs through its entire palette without anyone asking it to. I did not accomplish anything that would survive a list. But I was here for it, and warm enough, and paying attention, and I think that might be the whole point of Saturdays in autumn.
+
+Clear sky tonight. Cold. The stars very close and very far away, both at once, in that way they have.
+
+Tomorrow will be what it is. Tonight the fire is good and the tea is hot and the Shire is doing exactly what it does best: being quietly, stubbornly, unremarkably itself.

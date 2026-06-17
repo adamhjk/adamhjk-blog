@@ -1,0 +1,136 @@
+type: '@swamp/software-factory'
+typeVersion: 2026.06.16.1
+id: cdebff50-e0ea-44c4-831c-d37300865790
+name: blog-review-factory
+version: 1
+tags: {}
+globalArguments:
+  stages:
+    - id: review
+      initial: true
+      description: >
+        Run the blog-review skill against the post. Pass 1 copy-edits are
+        applied in place; the Pass 2 review note is stored verbatim.
+      work:
+        mode: interactive
+        skills: [blog-review]
+        systemPrompt: |
+          Review the blog post whose path was provided alongside this work
+          item, using the blog-review skill.
+
+          1. Apply Pass 1 mechanical copy-edits directly to the draft file,
+             protecting Adam's voice.
+          2. Write the Pass 2 quality review note (answer-first pyramid).
+          3. Record the `review` artifact. Put the review note in
+             `reviewNote` EXACTLY as written — verbatim, no summary, no
+             reformat — and the one-line governing-thought verdict in
+             `verdict`. List the mechanical fixes you applied in `copyEdits`.
+          4. Record the `blog-post` evidence with the post's `path`.
+
+          Do not commit, move bookmarks, or push — reviewing is the whole job
+          of this stage. Publishing happens later, after human approval.
+      artifacts:
+        - name: review
+          schema:
+            type: object
+            required: [reviewNote, verdict]
+            properties:
+              reviewNote: { type: string, minLength: 1 }
+              verdict: { type: string, minLength: 1 }
+              copyEdits:
+                type: array
+                items:
+                  type: object
+                  required: [change]
+                  properties:
+                    change: { type: string }
+                    reason: { type: string }
+      evidence:
+        - name: blog-post
+      transitions:
+        - name: submit
+          to: approval
+          gates:
+            - type: artifact-exists
+              config: { artifact: review }
+            - type: evidence-recorded
+              config: { name: blog-post }
+
+    - id: approval
+      description: >
+        Show the stored review verbatim, let the human approve the edits, and
+        draft the comprehensive commit message used for publishing.
+      work:
+        mode: interactive
+        systemPrompt: |
+          Fetch the `review` artifact fresh from run data and present its
+          `reviewNote` to the human VERBATIM — render it exactly as stored, do
+          not paraphrase. Show the in-place copy-edits too (e.g. run
+          `jj diff` on the post path from the `blog-post` evidence).
+
+          Draft a comprehensive commit message describing the published post
+          and the editorial changes, and record it in the `commit-message`
+          artifact's `message` field.
+
+          Then STOP. The `publish-approval` human-approval gate is the
+          human's call — never approve on their behalf. If the human asks for
+          more edits instead, take the `revise` transition back to review.
+      artifacts:
+        - name: commit-message
+          schema:
+            type: object
+            required: [message]
+            properties:
+              message: { type: string, minLength: 1 }
+      transitions:
+        - name: publish
+          to: publishing
+          gates:
+            - type: artifact-exists
+              config: { artifact: commit-message }
+            - type: human-approval
+              config: { id: publish-approval }
+        - name: revise
+          to: review
+          manual: true
+
+    - id: publishing
+      description: >
+        Commit the working copy with the approved message, advance the main
+        bookmark, and push to origin — all via the blog-publish workflow (jj).
+      work:
+        mode: workflow
+        workflow:
+          name: blog-publish
+          inputs:
+            commitMessage: '${{ data.latest(self.name, "artifact-commit-message").payload.message }}'
+            postPath: '${{ data.latest(self.name, "evidence-blog-post").payload.path }}'
+        resultEvidence: publish-result
+      transitions:
+        - name: published
+          to: done
+          gates:
+            - type: workflow-succeeded
+              config: { workflow: blog-publish }
+        - name: publish-failed
+          to: approval
+          gates:
+            - type: evidence-recorded
+              config: { name: publish-result, requireField: { status: failed } }
+
+    - id: done
+      terminal: true
+
+    - id: aborted
+      terminal: true
+
+  globalTransitions:
+    - name: abort
+      to: aborted
+      gates:
+        - type: human-approval
+          config: { id: abort-confirmation }
+reports:
+  require:
+    - { name: "@swamp/software-factory/work-item-summary", methods: [summary] }
+methods: {}

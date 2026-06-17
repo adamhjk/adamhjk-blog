@@ -1,0 +1,80 @@
+id: d0ca11f9-cd82-4600-8f01-aabcfd9c61f8
+name: blog-publish
+description: >
+  Publish an approved blog post. Sets a comprehensive commit message on the
+  current jj working copy, advances the `main` bookmark to it, and pushes to
+  origin. Driven by the blog-review-factory publishing stage; the commit
+  message is supplied by the factory as a resolved run-data binding.
+tags: {}
+inputs:
+  type: object
+  properties:
+    commitMessage:
+      type: string
+      description: The comprehensive commit message for the published post.
+    postPath:
+      type: string
+      description: Path of the blog post being published (for the log trail).
+  required:
+    - commitMessage
+jobs:
+  - name: publish
+    description: Commit, move main, and push to origin with jj.
+    steps:
+      - name: commit
+        description: Describe the working copy with the comprehensive message and open a fresh working copy.
+        task:
+          type: model_method
+          modelIdOrName: shell
+          methodName: execute
+          inputs:
+            run: |
+              set -euo pipefail
+              echo "Publishing: ${POST_PATH:-<working copy>}"
+              jj commit -m "$COMMIT_MSG"
+              echo "Committed working copy:"
+              jj log -r '@-' --no-pager
+            env:
+              COMMIT_MSG: ${{ inputs.commitMessage }}
+              POST_PATH: ${{ inputs.postPath }}
+        dependsOn: []
+        weight: 0
+        allowFailure: false
+      - name: move-main
+        description: Advance the main bookmark to the freshly committed change.
+        task:
+          type: model_method
+          modelIdOrName: shell
+          methodName: execute
+          inputs:
+            run: |
+              set -euo pipefail
+              jj bookmark move main --to @-
+              echo "main now at:"
+              jj bookmark list main --no-pager
+        dependsOn:
+          - step: commit
+            condition:
+              type: succeeded
+        weight: 0
+        allowFailure: false
+      - name: push
+        description: Push the main bookmark to origin.
+        task:
+          type: model_method
+          modelIdOrName: shell
+          methodName: execute
+          inputs:
+            run: |
+              set -euo pipefail
+              jj git push -b main
+              echo "Pushed main to origin."
+        dependsOn:
+          - step: move-main
+            condition:
+              type: succeeded
+        weight: 0
+        allowFailure: false
+    dependsOn: []
+    weight: 0
+version: 1

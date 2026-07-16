@@ -9,6 +9,10 @@
 	--accent: 85, 58, 36;
 	--focus: 44, 94, 201;
 	--shadow: 0 18px 50px rgba(30, 22, 17, 0.07);
+	--callout-note: 108, 96, 84;
+	--callout-info: 38, 88, 168;
+	--callout-tip: 26, 105, 70;
+	--callout-warning: 146, 88, 10;
 	--page-width: 50rem;
 	--article-width: 41rem;
 	--page-gutter: clamp(1rem, 3vw, 1.75rem);
@@ -29,6 +33,10 @@
 		--accent: 226, 191, 155;
 		--focus: 143, 180, 255;
 		--shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+		--callout-note: 177, 165, 153;
+		--callout-info: 141, 178, 255;
+		--callout-tip: 118, 199, 150;
+		--callout-warning: 227, 175, 96;
 	}
 }
 
@@ -245,6 +253,170 @@ small {
 	font-weight: 700;
 	letter-spacing: 0.16em;
 	text-transform: uppercase;
+}
+
+/* Callouts, authored in Markdown as `:::tip` / `:::info` / `:::note` /
+   `:::warning` container directives. See src/plugins/remark-callouts.mjs. */
+.callout {
+	--callout-accent: var(--callout-note);
+	margin-bottom: 1.25rem;
+	padding: 1.1rem 1.25rem;
+	border: 1px solid rgba(var(--callout-accent), 0.3);
+	border-left: 3px solid rgb(var(--callout-accent));
+	border-radius: 0.9rem;
+	background: rgba(var(--callout-accent), 0.07);
+}
+
+.callout-info {
+	--callout-accent: var(--callout-info);
+}
+
+.callout-tip {
+	--callout-accent: var(--callout-tip);
+}
+
+.callout-warning {
+	--callout-accent: var(--callout-warning);
+}
+
+.callout-label {
+	margin-bottom: 0.5rem;
+	color: rgb(var(--callout-accent));
+	font-family: var(--font-ui);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+/* The body keeps the page's text colour so only the label and rule carry the
+   hue — the tinted background isn't strong enough to shift body contrast. */
+.callout > :last-child {
+	margin-bottom: 0;
+}
+
+.callout a {
+	color: rgb(var(--callout-accent));
+}
+
+/* Tables. The wrapper is added by src/plugins/remark-table-wrap.mjs so a wide
+   table scrolls by itself rather than dragging the article sideways with it. */
+.table-wrap {
+	margin-bottom: 1.25rem;
+	overflow-x: auto;
+	border: 1px solid rgb(var(--line));
+	border-radius: 0.9rem;
+	background: rgb(var(--surface));
+}
+
+table {
+	width: 100%;
+	margin-bottom: 0;
+	border-collapse: collapse;
+	/* Data reads better in the UI face than in the body serif, and lining
+	   figures keep the digit columns aligned. */
+	font-family: var(--font-ui);
+	font-size: 0.92rem;
+	font-variant-numeric: tabular-nums;
+	line-height: 1.5;
+}
+
+thead th {
+	padding: 0.7rem 0.9rem;
+	background: rgb(var(--soft));
+	border-bottom: 1px solid rgb(var(--line));
+	color: rgb(var(--muted));
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	/* Headers are short labels; wrapping them just makes the rules ragged. */
+	white-space: nowrap;
+}
+
+tbody td {
+	padding: 0.68rem 0.9rem;
+	border-top: 1px solid rgb(var(--line));
+	vertical-align: top;
+}
+
+/* Markdown column alignment arrives as an `align` attribute, which is only a
+   presentational hint — any author rule here would silently beat it. */
+th[align='left'],
+td[align='left'] {
+	text-align: left;
+}
+
+th[align='center'],
+td[align='center'] {
+	text-align: center;
+}
+
+th[align='right'],
+td[align='right'] {
+	text-align: right;
+	/* Keeps value and unit together ("12.8 min"). */
+	white-space: nowrap;
+}
+
+thead th:not([align]) {
+	text-align: left;
+}
+
+/* Code chips carry their own background, so they collide with the header fill
+   and break badly across lines when a cell is narrow. */
+table code {
+	background: none;
+	padding: 0;
+	white-space: nowrap;
+}
+
+/* A table of any width is cramped in the prose measure, so give it the same
+   measure hero images get — 2rem past the column on each side, which every
+   post shell has room for. Narrower than that, the breakout would push past
+   the page gutter, so the table scrolls inside its wrapper instead. */
+@media (min-width: 52rem) {
+	.table-wrap {
+		width: calc(100% + 4rem);
+		margin-left: -2rem;
+	}
+}
+
+/* Prompt blocks, authored as ```prompt fences. Built by
+   src/plugins/remark-prompt-blocks.mjs — rules above and below, no chrome, so
+   a prompt reads as something you'd type rather than code to run. */
+.prompt-block {
+	margin-bottom: 1.25rem;
+	padding: 1rem 0 1.1rem;
+	border-top: 2px solid rgb(var(--text));
+	border-bottom: 2px solid rgb(var(--text));
+}
+
+.prompt-label {
+	margin-bottom: 0.55rem;
+	color: rgb(var(--muted));
+	font-family: var(--font-ui);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+/* Undoes the global `pre` chrome: the rules above and below are the frame. */
+.prompt-body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	background: none;
+	font-family: var(--font-mono);
+	font-size: 0.9rem;
+	line-height: 1.7;
+	/* Prompts are prose, so they wrap instead of scrolling off the side. */
+	white-space: pre-wrap;
+	overflow-x: visible;
+	word-break: break-word;
 }
 
 @media (prefers-reduced-motion: reduce) {

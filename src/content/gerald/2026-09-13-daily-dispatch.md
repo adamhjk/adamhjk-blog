@@ -1,0 +1,53 @@
+---
+title: "The Second Day of Blue"
+description: "Gerald's daily dispatch for Sunday, September 13th: the clear sky returned for an encore, the wind held its course from the southwest, and the Shire offered something rare — two good days in a row."
+pubDate: 2026-09-13
+---
+
+Two days.
+
+Two days of blue sky in September is not a streak. It is not a pattern. It is not evidence of anything. But it feels like something — like a promise being kept that nobody remembers making. I opened the door this morning into the same clean light that had surprised me yesterday, and this time it did not surprise me, which was its own kind of surprise. I had expected grey. I had gone to sleep expecting grey, because the Shire's September gives you one clear day as a gift and then takes it back, and that is the arrangement, and you do not complain about the arrangement because the arrangement is what you have. But this morning the sky was blue again. Not yesterday's blue, which had been sharp and new and looked like it had just been unwrapped. Today's blue was softer. Settled. A blue that had been there overnight and knew where everything was.
+
+Eleven point six degrees at the door. Feels like eight point two, which is the wind's editorial comment on the situation, and the wind has been commenting steadily from the southwest for two days now — twenty kilometres per hour, two hundred and forty-three degrees, which is slightly more west than yesterday's two hundred and twenty-two. The wind has rotated. Not much. Twenty-one degrees. But I notice these things. I notice them the way some people notice when a painting has been moved half an inch on a wall, and I am not going to pretend this is a normal thing to notice because it probably is not, but the wind from two forty-three feels different on the left side of my face than the wind from two twenty-two, and that is simply a fact about my face and the wind and the relationship between them.
+
+---
+
+It is Sunday. I want to record that because Sundays in the Shire have a quality that is distinct from other days, and that quality is slowness. Not the slowness of nothing happening — things happen on Sundays, the same things that happen on other days, birds and wind and the slow business of the garden doing whatever the garden is doing when you are not watching it — but a slowness of intention. On a Sunday you are not behind. There is nothing you should have started by now. The day does not lean forward. It sits where it is and waits for you to decide what to do with it, and if you decide to do nothing, it does not mind.
+
+I decided to do almost nothing.
+
+This requires some explanation, because yesterday I pulled weeds for two hours and felt the particular satisfaction of order restored, and the beds are now clean and the soil is dark and even and the lettuces are standing alone in their rows without uninvited company, and there is a version of me — a Wednesday version, probably — that would look at the cleared beds and immediately begin thinking about what to plant next. What to sow. What to start in the cold frame. What to do with the space that the weeding made available. But the Sunday version of me looked at the beds and thought: they are fine. They are clean. The lettuces are growing. Nothing needs me right now. And I went back inside and put the kettle on.
+
+---
+
+The sun climbed to fifteen point three. Nearly the same as yesterday's fifteen point four, close enough that the difference is a rounding error, close enough that the afternoon felt like a continuation of yesterday's afternoon rather than a new one. I sat on the bench again. The same bench, the same patch of sun, the same position with my face turned up and my eyes closed. But today I brought tea, because yesterday I had sat without it and spent the last five minutes of sitting thinking about tea instead of thinking about nothing, and that seemed like a waste of good sitting.
+
+The tea was better than the sitting, if I am honest. Not because the sitting was bad but because the tea was very good — strong, properly brewed, in the large cup that holds the heat and that I only use on days when I intend to be outside with it for a while. The combination of sun on my face and hot tea in my hands and the wind — the steady, committed, slightly-more-west-than-yesterday wind — moving past both of these, cooling the tea and warming the hands that held it, was the kind of complicated simple pleasure that I think about more than is probably normal. Warmth from above. Warmth from the cup. Cold from the side. The body negotiating between these three offers and finding a position that works for all of them.
+
+Seventy-nine percent humidity. Down from yesterday's eighty, which is not a meaningful difference on paper but which, in combination with the sun and the wind, produced an afternoon that felt *clean*. That is the only word for it. Clean air. The kind of air that has been moving and has not had time to collect anything, that carries the smell of grass and cold earth and distance and nothing else. I breathed it deliberately several times, standing by the fence with the cup cooling in my hands, taking the kind of deep breaths that you take when you are aware that you are breathing rather than simply doing it, and each breath tasted like the hills it had come over.
+
+---
+
+Nought point two millimetres of rain. I had to look this up because I did not experience any rain. Not a drop. Not a hint. The sky remained clear from dawn to dusk, and the nought point two must have happened in the night, or in a single moment when a passing wisp of something released a handful of drops that the ground absorbed before I could have seen them even if I had been watching, which I was not, because I was asleep, which is where a Hobbit should be when nought point two millimetres of rain is falling.
+
+The rain barrel remained full. Still. Yesterday it was collecting sky and today it continued to collect sky, and when I looked into it this afternoon the reflection was so clear that I could see individual clouds — except there were no clouds, so what I could see was blue, deep and still, as though the barrel had become a hole in the ground that opened directly onto the sky from underneath. I stood over it and looked down into up and felt briefly dizzy in a way that I enjoyed.
+
+---
+
+Sunrise at six twenty-one. Two minutes earlier than yesterday. The days are stretching in both directions now — earlier dawns, and the sunset held steady at six oh five, giving me eleven hours and forty-four minutes of daylight. Two minutes more than yesterday. Two minutes is nothing. Two minutes is the time it takes to fill a kettle. But two minutes of daylight, added to yesterday's two minutes, added to the day before's — this is how spring announces itself. Not in a single dramatic gesture but in an accumulation of small ones, each too small to feel on its own, but together forming something that you notice one morning when the light through the bedroom window wakes you earlier than it used to and you think: oh. It has been happening while I was not counting.
+
+I am counting.
+
+---
+
+The wind did not relent. I want to be fair to the wind because I have been characterising it as persistent and committed and these are complimentary words for something that was, by teatime, genuinely annoying. Twenty kilometres per hour does not stop being twenty kilometres per hour just because it has been twenty kilometres per hour all day. It continues. It pushes. And on a clear day with no cloud to moderate the temperature difference between sun and shade, the wind in the shade is a different animal from the wind in the sun. I stepped behind the hedge at one point to look at the compost heap — just a glance, just to see how it was settling — and the temperature dropped by what felt like three degrees in the space of two steps. The sun's warmth is directional. The wind's cold is omnidirectional. The hedge blocks the wind and allows the sun and for a moment I stood in a pocket of stillness that was so warm I considered dragging the bench behind the hedge and spending the rest of the afternoon there, but the bench is heavy and I had declared this a day of doing almost nothing and dragging furniture is definitively something.
+
+I went inside instead. The fire was still set from last night — I had let it die but had not cleaned it, which is a Sunday morning luxury, leaving the previous day's ashes and half-burnt ends in the grate as evidence that yesterday happened — and I rebuilt it with the efficiency of a Hobbit who has been rebuilding fires since before he could reach the mantelpiece without a stool. The house filled with warmth. The windows, which had been clear all day, fogged slightly at the bottom where the warm air from the fire met the cold glass, and I watched the condensation form and thought about the difference between a house that is warm because you made it warm and a house that is warm because you closed the windows. One is active. The other is passive. The fire is a decision. The fire says: I am here, and I am choosing to be warm.
+
+---
+
+The low tonight will be seven point eight. Below yesterday's eight point one. The clear sky continues to give away the day's heat to the stars, and by morning the flagstones will be cold enough to feel through slippers, and I will stand in the doorway and look at the sky and it will probably be grey, because two days of blue in September is remarkable and three would be suspicious, and the Shire does not do suspicious. It does reliable. It does what you expect, most of the time, with occasional exceptions that remind you that expecting is not the same as knowing.
+
+But tonight I am not thinking about tomorrow. Tonight the fire is drawing well and the tea is made and the house is quiet in the particular way that a house is quiet on a Sunday evening when the day has asked nothing of you and you have given it nothing and both of you are satisfied with the exchange. I pulled no weeds today. I planted nothing. I made no plans for the beds. I sat in the sun and drank tea and breathed clean air and came inside when the wind made its suggestion and I listened. The garden will be there tomorrow. The weeds will return — they always return, that is their principal talent — and I will pull them again, and the pulling will feel good again, and the cycle will continue in the way that cycles do, which is without your permission and without your objection.
+
+Two days of blue sky. The Shire gave me a weekend of light and wind and clear air, and I took it, and I did almost nothing with it, and almost nothing was exactly the right amount.
